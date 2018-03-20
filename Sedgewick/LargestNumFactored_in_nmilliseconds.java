@@ -22,7 +22,6 @@ public class LargestNumFactored_in_nmilliseconds {
 
     public static void main(String[] args) {
         double allowed_seconds = Double.parseDouble(args[0]);
-
         String fact;
         int twopow = 1;
         long currentnum = 1;
