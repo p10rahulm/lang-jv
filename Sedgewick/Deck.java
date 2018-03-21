@@ -6,8 +6,21 @@ public class Deck {
         for (String aDeck : deck) {
             System.out.println(aDeck);
         }
-
-
+        String[][] dealt_hands = deal(10);
+        MatrixOps.print_string_matrix(dealt_hands);
+    }
+    public static String[][] deal(int number_of_hands){
+        if(number_of_hands>10){
+            System.out.println("Too many hands");
+            String[][] a = new String[][] {{}};
+            return a;
+        }
+        String[] deck = shuffledDeck();
+        String[][] output = new String[number_of_hands][5];
+        for(int i =0;i<number_of_hands*5;i++){
+            output[i/5][i%5] = deck[i];
+        }
+        return output;
     }
     public static String selectrandom(){
         String[] suit = {"Clubs","Diamonds","Hearts","Spades"};
