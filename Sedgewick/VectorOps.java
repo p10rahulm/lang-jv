@@ -28,6 +28,40 @@ public class VectorOps {
         }
         return(a);
     }
+    public static void printvector(boolean[] a){
+        System.out.print("[");
+        for(int i =0;i<a.length;i++){
+            if(i!=0)System.out.print(", ");
+            System.out.print(a[i]);
+        }
+        System.out.print("]\n");
+    }
+    public static void printvector(String[] a){
+        System.out.print("[");
+        for(int i =0;i<a.length;i++){
+            if(i!=0)System.out.print(", ");
+            System.out.print("\"");
+            System.out.print(a[i]);
+            System.out.print("\"");
+        }
+        System.out.print("]\n");
+    }
+    public static void printvector(double[] a){
+        System.out.print("[");
+        for(int i =0;i<a.length;i++){
+            if(i!=0)System.out.print(", ");
+            System.out.print(a[i]);
+        }
+        System.out.print("]\n");
+    }
+    public static void printvector(int[] a){
+        System.out.print("[");
+        for(int i =0;i<a.length;i++){
+            if(i!=0)System.out.print(", ");
+            System.out.print(a[i]);
+        }
+        System.out.print("]\n");
+    }
     public static void main(String[] args){
         double[] a  = {1,2,3,4};
         double[] b  = {4,3,2,1};
@@ -39,8 +73,20 @@ public class VectorOps {
         for(int i =0;i<c.length;i++){System.out.println(c[i]);}
         String[] d = reverse_new(c);
         for(int i =0;i<c.length;i++){System.out.println(d[i]);}
-
-
+    }
+    public static int longest_rising_subsequence(int[] a){
+        int longest_now = 0,longest_so_far = 0;
+        int prev = Integer.MIN_VALUE;
+        for(int i=0;i<a.length;i++){
+            if(a[i]>prev){
+                longest_now++;
+            } else {
+                if(longest_now>longest_so_far)longest_so_far=longest_now;
+                longest_now=0;
+            }
+            prev=a[i];
+        }
+        return Math.max(longest_now,longest_so_far);
     }
 
 }
