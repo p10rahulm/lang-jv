@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.Arrays;
 
 public class MatrixOps {
@@ -80,7 +81,6 @@ public class MatrixOps {
         return out;
     }
 
-
     public static void print_boolean_matrix(boolean[][] a){
         System.out.print("   ");
         for(int i =0;i<a[1].length;i++){
@@ -109,6 +109,15 @@ public class MatrixOps {
             System.out.println();
         }
     }
+    public static void print_matrix(double[][] a){
+        for(int i =0;i<a.length;i++){
+            if(i/100==0)System.out.print(" ");
+            System.out.print(i+":");
+            if(i/10==0)System.out.print(" ");
+            for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
+            System.out.println();
+        }
+    }
     public static void print_matrix(String[][] a){
         for(int i =0;i<a.length;i++){
             if(i/100==0)System.out.print(" ");
@@ -126,6 +135,16 @@ public class MatrixOps {
             for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
             System.out.println();
         }
+    }
+    public static boolean[][] copy_square_matrix(boolean[][] a){
+        int n = a.length;
+        boolean[][] out = new boolean[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                out[i][j]=a[i][j];
+            }
+        }
+        return out;
     }
     public static int[][] copy_square_matrix(int[][] a){
         int n = a.length;

@@ -6,6 +6,8 @@ public class Sqrt {
         while(Math.abs(guess - input/guess)>error*guess){
             guess = (input/guess + guess)/2;
         }
-        System.out.println(guess);
+        //System.out.println(guess);
+        StdOut.printf("The square root of " + input + " is "+guess+".\n");
+        StdOut.printf("The square root of %.1f is %.6f.", input,guess);
     }
 }

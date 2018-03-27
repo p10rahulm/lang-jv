@@ -8,12 +8,12 @@ public class Deck {
         }
         String[][] dealt_hands = deal(10);
         MatrixOps.print_string_matrix(dealt_hands);
+
     }
     public static String[][] deal(int number_of_hands){
         if(number_of_hands>10){
             System.out.println("Too many hands");
-            String[][] a = new String[][] {{}};
-            return a;
+            return new String[][] {{}};
         }
         String[] deck = shuffledDeck();
         String[][] output = new String[number_of_hands][5];
@@ -66,4 +66,5 @@ public class Deck {
         }
         return deck;
     }
+
 }
