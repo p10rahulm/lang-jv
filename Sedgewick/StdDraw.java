@@ -1642,6 +1642,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
+
+
+
     /**
      * This method cannot be called directly.
      */
