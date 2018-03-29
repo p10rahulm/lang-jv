@@ -4,12 +4,8 @@ public class PlaythatTune {
 
         int sampling_rate = 44100;
         while(!StdIn.isEmpty()){
-
             int pitch = StdIn.readInt();
-
             double duration = StdIn.readDouble();
-
-
             double freq = 440 * Math.pow(2, pitch / 12.0);
             /*System.out.println(freq);
             freq = 440 * Math.pow(2, pitch / 12); // wow such a large difference on changing 12.0 to 12!
