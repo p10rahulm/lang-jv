@@ -1,4 +1,6 @@
-public class TerrainAnalysis {
+import java.text.DecimalFormat;
+
+public class Histogram {
     public static void main(String[] args){
         double l = Double.parseDouble(args[0]);
         double r = Double.parseDouble(args[1]);
@@ -35,8 +37,9 @@ public class TerrainAnalysis {
             StdDraw.filledRectangle((bucket_upperbounds[i]+bucket_upperbounds[i-1])/2,(double) buckets[i]/2,(bucket_upperbounds[i]-bucket_upperbounds[i-1])/2,(double)buckets[i]/2);
         }
         StdDraw.text(l+0.125,-.25,Double.toString(l));
+        DecimalFormat df = new DecimalFormat(".#");
         for(int i =0;i<n;i++) {
-            StdDraw.text(bucket_upperbounds[i]-0.25,-.25,Double.toString(bucket_upperbounds[i]));
+            StdDraw.text(bucket_upperbounds[i]-0.25,-.25,df.format(bucket_upperbounds[i]));
         }
         StdDraw.text(l-0.25,0.125,Integer.toString(0));
         for(int i =1;i<=hist_max;i++) {
