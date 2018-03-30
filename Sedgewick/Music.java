@@ -44,10 +44,10 @@ public class Music {
                 //below sounds like a guitar which is being damped at attenuation_c of 100
                 //audio[j] += power[i]*Math.sin(coeff[i] * j)*Math.pow(2,(double)(-j/attenuation_c));
                 //below sounds like violin
-                audio[j] += power[i]*Math.sin(coeff[i] * j)*(double)j/SAMPLING_RATE;
+                //audio[j] += power[i]*Math.sin(coeff[i] * j)*(double)j/SAMPLING_RATE;
                 //audio[j] += power[i]*Math.sin(coeff[i] * j)*(double)j/attenuation_c;
                 //below sounds like violin, but maybe more natural than above as there is attenuation as well
-                //audio[j] += power[i]*Math.sin(coeff[i] * j)*(audio_length/2 - Math.abs(audio_length/2 - j))/attenuation_c;
+                audio[j] += power[i]*Math.sin(coeff[i] * j)*(audio_length/2 - Math.abs(audio_length/2 - j))/attenuation_c;
             }
         }
         return(audio);
