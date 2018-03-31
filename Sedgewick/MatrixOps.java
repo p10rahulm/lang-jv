@@ -157,6 +157,16 @@ public class MatrixOps {
         }
         return out;
     }
+    public static double[][] copy_square_matrix(double[][] a){
+        int n = a.length;
+        double[][] out = new double[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                out[i][j]=a[i][j];
+            }
+        }
+        return out;
+    }
     public static int[][] copy_rectangular_matrix(int[][] a){
         int x = a.length;
         int y = a[1].length;
@@ -216,13 +226,60 @@ public class MatrixOps {
         return out;
     }
     public static double[][] cumulative_rows(double[][] input){
-        double[][] transition_matrix = input.clone();
-        for(int i = 0;i<input.length;i++){
-            for(int j = 1;j<input.length;j++){
-                transition_matrix[i][j] = transition_matrix[i][j]+transition_matrix[i][j-1];
+        double[][] output = copy_square_matrix(input);
+        for(int i = 0;i<output.length;i++){
+            for(int j = 1;j<output.length;j++){
+                output[i][j] = output[i][j]+output[i][j-1];
             }
         }
-        return transition_matrix;
+        return output;
+    }
+    public static double[][] square_matrix(double[][] input){
+        int size= input.length;
+        double[][] output=new double[size][size];
+        for(int i = 0;i<size;i++){
+            for(int j = 0;j<size;j++){
+                double sum = 0;
+                for(int k=0;k<size;k++){
+                    sum += input[i][k]*input[k][j];
+                }
+                output[i][j] += sum;
+            }
+        }
+        return output;
+    }
+    public static double[][] readDouble2D(){
+        int n = StdIn.readInt();
+        int m = StdIn.readInt();
+        double[][] out = new double[m][n];
+        for(int i =0;i<n;i++){
+            for(int j=0;j<m;j++){
+                out[m][n] = StdIn.readDouble();
+            }
+        }
+        return(out);
+    }
+    public static int[][] readInt2D(){
+        int n = StdIn.readInt();
+        int m = StdIn.readInt();
+        int[][] out = new int[m][n];
+        for(int i =0;i<n;i++){
+            for(int j=0;j<m;j++){
+                out[m][n] = StdIn.readInt();
+            }
+        }
+        return(out);
+    }
+    public static boolean[][] readBoolean2D(){
+        int n = StdIn.readInt();
+        int m = StdIn.readInt();
+        boolean[][] out = new boolean[m][n];
+        for(int i =0;i<n;i++){
+            for(int j=0;j<m;j++){
+                out[m][n] = StdIn.readBoolean();
+            }
+        }
+        return(out);
     }
 
 }

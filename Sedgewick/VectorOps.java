@@ -156,15 +156,51 @@ public class VectorOps {
         for(int i =0;i<permute_size;i++){
             out[i]=i;
         }
-        int pickrandom,temp;
         for(int i =0;i<permute_size;i++){
-            pickrandom = (int)(Math.random()*(permute_size-i));
-            temp = out[i];
-            out[i] = out[i+pickrandom];
-            out[i+pickrandom] = temp;
+            int pick_random = (int)(Math.random()*(permute_size-i));
+            exchange(out,i, i+pick_random);
         }
         return out;
     }
+    public static void shuffle(int[] permute_array){
+        int n = permute_array.length;
+        for(int i =0;i<n;i++){
+            exchange(permute_array,i, i+Random.randbetween(0,n-i));
+        }
+    }
+    public static void shuffle(boolean[] permute_array){
+        int n = permute_array.length;
+        for(int i =0;i<n;i++){
+            exchange(permute_array,i, i+Random.randbetween(0,n-i));
+        }
+    }
+    public static void shuffle(double[] permute_array){
+        int n = permute_array.length;
+        for(int i =0;i<n;i++){
+            exchange(permute_array,i, i+Random.randbetween(0,n-i));
+        }
+    }
+
+
+    public static void exchange(double[] input_array,int x, int y){
+        double temp = input_array[x];
+        input_array[x] = input_array[y];
+        input_array[y] = temp;
+        return;
+    }
+    public static void exchange(int[] input_array,int x, int y){
+        int temp = input_array[x];
+        input_array[x] = input_array[y];
+        input_array[y] = temp;
+        return;
+    }
+    public static void exchange(boolean[] input_array,int x, int y){
+        boolean temp = input_array[x];
+        input_array[x] = input_array[y];
+        input_array[y] = temp;
+        return;
+    }
+
     public static int[] bad_permuted(int permute_size){ //checking how not to permute!
         int[] out = new int[permute_size];
         for(int i =0;i<permute_size;i++){
@@ -332,6 +368,94 @@ public class VectorOps {
         A[i+1] = A[hi];
         A[hi] = temp;
         return i+1;
+    }
+    public static int dot_product(int[] a,int[] b){
+        if(a.length!=b.length){
+            throw new ArithmeticException("Array lengths are not equal");
+        }
+        int sum =0;
+        for(int i=0;i<a.length;i++){
+            sum+=a[i]*b[i];
+        }
+        return sum;
+    }
+    public static double dot_product(double[] a,double[] b){
+        if(a.length!=b.length){
+            throw new ArithmeticException("Array lengths are not equal");
+        }
+        double sum =0;
+        for(int i=0;i<a.length;i++){
+            sum+=a[i]*b[i];
+        }
+        return sum;
+    }
+
+    public static double array_max(double[] input_array){
+        double max=Double.NEGATIVE_INFINITY;
+        for(int i =0;i<input_array.length;i++){
+            if(input_array[i]>max){max=input_array[i];}
+        }
+        return max;
+    }
+    public static double array_min(double [] input_array){
+        double min=Double.POSITIVE_INFINITY;
+        for(int i =0;i<input_array.length;i++){
+            if(input_array[i]<min){min=input_array[i];}
+        }
+        return min;
+    }
+    public static int array_max(int[] input_array){
+        int max=Integer.MIN_VALUE;
+        for(int i =0;i<input_array.length;i++){
+            if(input_array[i]>max){max=input_array[i];}
+        }
+        return max;
+    }
+    public static int array_min(int[] input_array){
+        int min=Integer.MAX_VALUE;
+        for(int i =0;i<input_array.length;i++){
+            if(input_array[i]<min){min=input_array[i];}
+        }
+        return min;
+    }
+    public static int[] arraycopy(int[] input){
+        int[] out = new int[input.length];
+        for(int i =0;i<input.length;i++){
+            out[i] = input[i];
+        }
+        return(out);
+    }
+    public static double[] arraycopy(double[] input){
+        double[] out = new double[input.length];
+        for(int i =0;i<input.length;i++){
+            out[i] = input[i];
+        }
+        return(out);
+    }
+    public static boolean[] arraycopy(boolean[] input){
+        boolean[] out = new boolean[input.length];
+        for(int i =0;i<input.length;i++){
+            out[i] = input[i];
+        }
+        return(out);
+    }
+    public static String[] arraycopy(String[] input){
+        String[] out = new String[input.length];
+        for(int i =0;i<input.length;i++){
+            out[i] = input[i];
+        }
+        return(out);
+    }
+    public static double[] scale_tozero_one(double[] input_array){
+        double[] copy = arraycopy(input_array);
+        double min = array_min(input_array);
+        double max = array_max(input_array);
+        double diff = (max-min);
+        for(int i =0;i<input_array.length;i++){
+            copy[i]-=min;
+            copy[i]/=diff;
+        }
+        return(copy);
     }
 
 }
