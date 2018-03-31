@@ -15,6 +15,7 @@ public class MatrixOps {
         System.out.println(Arrays.toString(b));
         System.out.println(Arrays.deepToString(b));
     }
+
     public static int[][] cross_product(int[][] a,int[][] b){
         int x1 = a.length;
         int x2 = a[0].length;
@@ -214,4 +215,14 @@ public class MatrixOps {
         }
         return out;
     }
+    public static double[][] cumulative_rows(double[][] input){
+        double[][] transition_matrix = input.clone();
+        for(int i = 0;i<input.length;i++){
+            for(int j = 1;j<input.length;j++){
+                transition_matrix[i][j] = transition_matrix[i][j]+transition_matrix[i][j-1];
+            }
+        }
+        return transition_matrix;
+    }
+
 }

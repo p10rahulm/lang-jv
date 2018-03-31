@@ -1,4 +1,4 @@
-public class printcheckerboard {
+public class Printcheckerboard {
     public static void main(String[] args){
         int size = Integer.parseInt(args[0]);
         System.out.print(" ");
