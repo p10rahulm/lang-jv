@@ -7,6 +7,12 @@ public class Random {
         if(hi<lo){double temp = lo;lo=hi;hi=temp;}
         return(lo+Math.random()*(hi-lo));
     }
+    public static double uniform(double n){
+        return(Math.random()*(n));
+    }
+    public static int uniform(int n){ //upto n including 0
+        return((int)(Math.random()*n));
+    }
     //below tells you given a z score what is the probability. Z score is (x-mu)/sigma
     public static double phi(double z){
         return (Math.exp(-z*z/2)/Math.sqrt(2*Math.PI));
@@ -60,14 +66,31 @@ public class Random {
         } while(r>=1 || r==0);
         return(x*Math.sqrt(-2*Math.log(r)/r));
     }
+    public static void shuffle(double[] input){
+        VectorOps.shuffle(input);
+    }
+    public static void shuffle(int[] input){
+        VectorOps.shuffle(input);
+    }
+    public static void shuffle(boolean[] input){
+        VectorOps.shuffle(input);
+    }
 
 
+    public static void RandomPoints(int n){
+        StdDraw.setPenRadius(0.01);
+        for(int i =0;i<n;i++){
+            double x = gaussian(0.5,0.2);double y = gaussian(0.5,0.2);
+            StdDraw.point(x,y);
+        }
+    }
     public static void main(String[] args){
         System.out.println(randbetween(1,30));
         System.out.println(randbetween(2,1));
         System.out.println(randbetween(2,2));
         System.out.println(random_frm_normal(100,10));
         System.out.println(gaussian(100,10));
+        RandomPoints(1000);
 
     }
 

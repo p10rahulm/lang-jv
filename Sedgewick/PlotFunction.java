@@ -26,4 +26,66 @@ public class PlotFunction {
 
 
     }
+    public static void plot_function(double[] x,double[] y, boolean pointsonly,double penradius){
+        if(x.length!=y.length){
+            System.out.println("array lengths do not match");
+            return;
+        }
+        double x_min = VectorOps.array_min(x);
+        double x_max = VectorOps.array_max(x);
+        double y_min = VectorOps.array_min(y);
+        double y_max = VectorOps.array_max(y);
+        StdDraw.setXscale(x_min,x_max);
+        StdDraw.setYscale(y_min,y_max);
+        if(pointsonly){
+            for (int i = 0; i < x.length; i++) {
+                StdDraw.setPenRadius(penradius);
+                StdDraw.point(x[i],y[i]);
+
+            }
+        } else {
+            for (int i = 1; i < x.length; i++) {
+                StdDraw.setPenRadius(penradius);
+                StdDraw.line(x[i - 1], y[i - 1], x[i], y[i]);
+            }
+        }
+    }
+    public static void plot_function(double[] x,double[] y, boolean pointsonly){
+        if(x.length!=y.length){
+            System.out.println("array lengths do not match");
+            return;
+        }
+        double x_min = VectorOps.array_min(x);
+        double x_max = VectorOps.array_max(x);
+        double y_min = VectorOps.array_min(y);
+        double y_max = VectorOps.array_max(y);
+        StdDraw.setXscale(x_min,x_max);
+        StdDraw.setYscale(y_min,y_max);
+        if(pointsonly){
+            for (int i = 0; i < x.length; i++) {
+                StdDraw.setPenRadius(0.01);
+                StdDraw.point(x[i],y[i]);
+            }
+        } else {
+            for (int i = 1; i < x.length; i++) {
+                StdDraw.line(x[i - 1], y[i - 1], x[i], y[i]);
+            }
+        }
+    }
+    public static void plot_function(double[] x,double[] y){
+        if(x.length!=y.length){
+            System.out.println("array lengths do not match");
+            return;
+        }
+        double x_min = VectorOps.array_min(x);
+        double x_max = VectorOps.array_max(x);
+        double y_min = VectorOps.array_min(y);
+        double y_max = VectorOps.array_max(y);
+        StdDraw.setXscale(x_min,x_max);
+        StdDraw.setYscale(y_min,y_max);
+        for (int i = 1; i < x.length; i++) {
+            StdDraw.setPenRadius(0.02);
+            StdDraw.line(x[i - 1], y[i - 1], x[i], y[i]);
+        }
+    }
 }

@@ -1,4 +1,4 @@
-public class randomwalk2d_hitedge {
+public class Randomwalk2d_Hitedge {
     public static void main(String[] args){
         int size =Integer.parseInt(args[0]);
         int x=0,y = 0,steps=0;

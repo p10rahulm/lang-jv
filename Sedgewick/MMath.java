@@ -38,6 +38,10 @@ public class MMath {
         StdOut.println(harmonic(n) +" "+Harmonic.H_small(n));
         double[] p = {1,2,3};
         System.out.println(eval_polynomial(2.0,p));
+        System.out.println(toBase_String(15,16));
+        System.out.println(toBase_String(255,16));
+        System.out.println(toBase_long(255,16));
+        System.out.println(toBase_long(255,2));
     }
     //polynomial evaluation
     // Horners Method
@@ -49,6 +53,47 @@ public class MMath {
         }
         return(term);
     }
+
+    public static long toBase_long(int num, int base){
+        int v = 1;
+        long output=0;
+        while(v<=num/base){v = v*base;}
+        int n = num;
+        while(v>0){
+            if(n<v){
+                output*=10;
+            } else{
+                output*=10;
+                output+=n/v;
+                n -= (n/v) * v;
+            }
+            v = v/base;
+        }
+        return output;
+    }
+    public static String toBase_String(int num, int base){
+        int v = 1;
+        String output="";
+        while(v<=num/base){v = v*base;}
+        int n = num;
+        while(v>0){
+            if(n<v){
+                output=output+"0";
+            } else{
+                if((n/v)>9){
+                    output +=Character.toString((char)(65+(n/v)-10));
+                    //Ascii value of A = 65 thats why adding that, and A = 10 thats why subtracting 10.
+                } else{
+                    output=output + (n/v);
+                }
+                n -= (n/v) * v;
+            }
+            v = v/base;
+        }
+        return output;
+    }
+
+
 
 
 

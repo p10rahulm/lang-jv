@@ -1,4 +1,4 @@
-public class twenty_questions {
+public class TwentyQuestions {
     public static void main(String[] args){
         System.out.println("So here's a game, " +
                 "i'll try to guess a number between 0 and 1,000,000 that you think of. " +
