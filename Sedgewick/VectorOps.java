@@ -485,6 +485,22 @@ public class VectorOps {
         }
         return output;
     }
+    public static int[] readInt1d(){
+        int n = StdIn.readInt();
+        int[] out = new int[n];
+        for(int i =0;i<n;i++){
+            out[i] = StdIn.readInt();
+        }
+        return out;
+    }
+    public static double[] readDouble1d(){
+        int n = StdIn.readInt();
+        double[] out = new double[n];
+        for(int i =0;i<n;i++){
+            out[i] = StdIn.readDouble();
+        }
+        return out;
+    }
 
 }
 
