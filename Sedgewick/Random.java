@@ -100,4 +100,12 @@ public class Random {
 
     }
 
+    public static boolean bernoulli(double p){
+        return(Math.random()<p);
+    }
+    public static double exponentialDistributionRandom(double lambda){
+        return(Math.log(Math.random())/lambda);
+    }
+
+
 }

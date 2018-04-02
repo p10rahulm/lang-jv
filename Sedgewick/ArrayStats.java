@@ -80,7 +80,7 @@ public class ArrayStats {
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =0; i<a.length;i++){
-            StdDraw.point(i,a[i]);
+            StdDraw.point(i+0.5,a[i]);
         }
     }
     public static void plotPoints(int[] a){
@@ -90,16 +90,77 @@ public class ArrayStats {
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =0; i<a.length;i++){
-            StdDraw.point(i,a[i]);
+            StdDraw.point(i+0.5,a[i]);
         }
     }
+    public static void plotPoints(double[] a,double offsetx){
+        double y_max = max(a);
+        double y_min = min(a);
+        StdDraw.setPenRadius(0.01);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+offsetx,a[i]);
+        }
+    }
+    public static void plotPoints(int[] a,double offsetx){
+        int y_max = max(a);
+        int y_min = min(a);
+        StdDraw.setPenRadius(0.01);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+offsetx,a[i]);
+        }
+    }
+    public static void plotPoints(double[] a,double offsetx,double penradius){
+        double y_max = max(a);
+        double y_min = min(a);
+        StdDraw.setPenRadius(penradius);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+offsetx,a[i]);
+        }
+    }
+    public static void plotPoints(int[] a,double offsetx,double penradius){
+        int y_max = max(a);
+        int y_min = min(a);
+        StdDraw.setPenRadius(penradius);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+offsetx,a[i]);
+        }
+    }
+    public static void plotPoints(double penradius,double[] a){
+        double y_max = max(a);
+        double y_min = min(a);
+        StdDraw.setPenRadius(penradius);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+0.5,a[i]);
+        }
+    }
+    public static void plotPoints(double penradius,int[] a){
+        int y_max = max(a);
+        int y_min = min(a);
+        StdDraw.setPenRadius(penradius);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =0; i<a.length;i++){
+            StdDraw.point(i+0.5,a[i]);
+        }
+    }
+
     public static void plotLines(double[] a){
         double y_max = max(a);
         double y_min = min(a);
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =1; i<a.length;i++){
-            StdDraw.line(i,a[i],i-1,a[i-1]);
+            StdDraw.line(i+0.5,a[i],i-1+0.5,a[i-1]);
         }
     }
     public static void plotLines(int[] a){
@@ -108,7 +169,25 @@ public class ArrayStats {
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =1; i<a.length;i++){
-            StdDraw.line(i,a[i],i-1,a[i-1]);
+            StdDraw.line(i+0.5,a[i],i-1+0.5,a[i-1]);
+        }
+    }
+    public static void plotLines(double[] a,double offsetx){
+        double y_max = max(a);
+        double y_min = min(a);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =1; i<a.length;i++){
+            StdDraw.line(i+offsetx,a[i],i-1+offsetx,a[i-1]);
+        }
+    }
+    public static void plotLines(int[] a,double offsetx){
+        int y_max = max(a);
+        double y_min = min(a);
+        StdDraw.setXscale(0,a.length);
+        StdDraw.setYscale(y_min,y_max);
+        for(int i =1; i<a.length;i++){
+            StdDraw.line(i+offsetx,a[i],i-1+offsetx,a[i-1]);
         }
     }
     public static void plotBars(double[] a){
@@ -117,7 +196,7 @@ public class ArrayStats {
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =0; i<a.length;i++){
-            StdDraw.filledRectangle(i+0.5,a[i]/2,0.5,Math.abs(a[i]/2));
+            StdDraw.filledRectangle(i+0.5,a[i]/2,0.25,Math.abs(a[i]/2));
         }
     }
     public static void plotBars(int[] a){
@@ -126,7 +205,7 @@ public class ArrayStats {
         StdDraw.setXscale(0,a.length);
         StdDraw.setYscale(y_min,y_max);
         for(int i =0; i<a.length;i++){
-            StdDraw.filledRectangle(i+0.5,a[i]/2,0.5,Math.abs(a[i]/2));
+            StdDraw.filledRectangle(i+0.5,a[i]/2,0.25,Math.abs(a[i]/2));
         }
     }
     public static void main(String[] args){
