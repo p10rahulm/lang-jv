@@ -341,6 +341,7 @@ public class VectorOps {
         }
         return false;
     }
+
     public static int[] sort_inplace(int[] input_array){
         input_array = quicksort(input_array,0,input_array.length-1);
         return input_array;
@@ -369,6 +370,37 @@ public class VectorOps {
         A[hi] = temp;
         return i+1;
     }
+
+    public static double[] sort_inplace(double[] input_array){
+        input_array = quicksort(input_array,0,input_array.length-1);
+        return input_array;
+    }
+    public static double[] quicksort(double[] A, int lo, int hi){
+        if(lo<hi){
+            int p = partition(A,lo,hi);
+            quicksort(A,lo,p-1);
+            quicksort(A,p+1,hi);
+        }
+        return A;
+    }
+    public static int partition(double[] A, int lo, int hi){
+        double pivot = A[hi];
+        int i = lo-1; double temp;
+        for(int j = lo;j<hi;j++){
+            if(A[j]<pivot){
+                i++;
+                temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+        }
+        temp = A[i+1];
+        A[i+1] = A[hi];
+        A[hi] = temp;
+        return i+1;
+    }
+
+
     public static int dot_product(int[] a,int[] b){
         if(a.length!=b.length){
             throw new ArithmeticException("Array lengths are not equal");

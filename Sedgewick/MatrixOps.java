@@ -251,10 +251,10 @@ public class MatrixOps {
     public static double[][] readDouble2D(){
         int n = StdIn.readInt();
         int m = StdIn.readInt();
-        double[][] out = new double[m][n];
+        double[][] out = new double[n][m];
         for(int i =0;i<n;i++){
             for(int j=0;j<m;j++){
-                out[m][n] = StdIn.readDouble();
+                out[i][j] = StdIn.readDouble();
             }
         }
         return(out);
