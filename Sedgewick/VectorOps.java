@@ -457,6 +457,34 @@ public class VectorOps {
         }
         return(copy);
     }
+    public static double[] normalize(int[] input){
+        double sum = 0;
+        double[] out = new double[input.length];
+        for(int i =0;i<input.length;i++){sum+=input[i];}
+        for(int i =0;i<input.length;i++){out[i] = (double) input[i]/sum;}
+        return out;
+    }
+    public static double[] normalize(double[] input){
+        double sum = 0;
+        double[] out = new double[input.length];
+        for(int i =0;i<input.length;i++){sum+=input[i];}
+        for(int i =0;i<input.length;i++){out[i] = input[i]/sum;}
+        return out;
+    }
+    public static double[] cumulative_sum(double[] input){
+        double[] output = arraycopy(input);
+        for(int i = 1;i<output.length;i++){
+                output[i]+=output[i-1];
+        }
+        return output;
+    }
+    public static int[] cumulative_sum(int[] input){
+        int[] output = arraycopy(input);
+        for(int i = 1;i<output.length;i++){
+            output[i]+=output[i-1];
+        }
+        return output;
+    }
 
 }
 
