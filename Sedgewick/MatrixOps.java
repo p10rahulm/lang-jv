@@ -16,7 +16,7 @@ public class MatrixOps {
         System.out.println(Arrays.deepToString(b));
     }
 
-    public static int[][] cross_product(int[][] a,int[][] b){
+    public static int[][] multiply(int[][] a, int[][] b){
         int x1 = a.length;
         int x2 = a[0].length;
         int y1 = b.length;
@@ -37,7 +37,7 @@ public class MatrixOps {
         }
         return out;
     }
-    public static double[][] cross_product(double[][] a,double[][] b){
+    public static double[][] multiply(double[][] a, double[][] b){
         int x1 = a.length;
         int x2 = a[0].length;
         int y1 = b.length;
@@ -58,7 +58,7 @@ public class MatrixOps {
         }
         return out;
     }
-    public static boolean[][] cross_product(boolean[][] a,boolean[][] b){
+    public static boolean[][] multiply(boolean[][] a, boolean[][] b){
         int x1 = a.length;
         int x2 = a[0].length;
         int y1 = b.length;
@@ -81,6 +81,67 @@ public class MatrixOps {
         }
         return out;
     }
+    public static int[] multiply(int[][] a, int[] b){
+        if(a[0].length!=b.length){
+            System.out.println("Wrong Matrix dimensions to multiple");
+            return new int[]{};
+        }
+        int[] out = new int[a.length];
+        for(int i = 0;i<a.length;i++){
+            int sum = 0;
+            for(int j = 0;j<a[0].length;j++){
+                sum+=a[i][j]*b[j];
+            }
+            out[i] = sum;
+        }
+        return out;
+    }
+    public static double[] multiply(double[][] a, double[] b){
+        if(a[0].length!=b.length){
+            System.out.println("Wrong Matrix dimensions to multiple");
+            return new double[]{};
+        }
+        double[] out = new double[a.length];
+        for(int i = 0;i<a.length;i++){
+            double sum = 0;
+            for(int j = 0;j<a[0].length;j++){
+                sum+=a[i][j]*b[j];
+            }
+            out[i] = sum;
+        }
+        return out;
+    }
+    public static int[] multiply(int[] a, int[][] b){
+        if(a.length!=b.length){
+            System.out.println("Wrong Matrix dimensions to multiple");
+            return new int[]{};
+        }
+        int[] out = new int[b[0].length];
+        for(int i = 0;i<b[0].length;i++){
+            int sum = 0;
+            for(int j = 0;j<a.length;j++){
+                sum+=a[j]*b[j][i];
+            }
+            out[i] = sum;
+        }
+        return out;
+    }
+    public static double[] multiply(double[] a, double[][] b){
+        if(a.length!=b.length){
+            System.out.println("Wrong Matrix dimensions to multiple");
+            return new double[]{};
+        }
+        double[] out = new double[b[0].length];
+        for(int i = 0;i<b[0].length;i++){
+            double sum = 0;
+            for(int j = 0;j<a.length;j++){
+                sum+=a[j]*b[j][i];
+            }
+            out[i] = sum;
+        }
+        return out;
+    }
+
 
     public static void print_boolean_matrix(boolean[][] a){
         System.out.print("   ");
@@ -281,5 +342,7 @@ public class MatrixOps {
         }
         return(out);
     }
+
+
 
 }
