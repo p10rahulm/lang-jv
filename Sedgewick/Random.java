@@ -75,7 +75,13 @@ public class Random {
     public static void shuffle(boolean[] input){
         VectorOps.shuffle(input);
     }
-
+    public static int discrete(double[] a){
+        double rand = Math.random();
+        double[] b = VectorOps.cumulative_sum(a);
+        int counter;
+        for(counter =0;counter<a.length&&b[counter]<rand;counter++){}
+        return counter;
+    }
 
     public static void RandomPoints(int n){
         StdDraw.setPenRadius(0.01);
