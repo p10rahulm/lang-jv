@@ -152,6 +152,7 @@ public class VectorOps {
         return new int[]{longest_so_far, longest_start_sofar};
     }
     public static int[] permuted(int permute_size){
+        //shuffles an array of size n, filled with numbers from 1 to n
         int[] out = new int[permute_size];
         for(int i =0;i<permute_size;i++){
             out[i]=i;

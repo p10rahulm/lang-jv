@@ -9,7 +9,7 @@ public class Minesweeper {
                 if(Math.random()<=p)large_mine[i][j]=true;
             }
         }
-        MatrixOps.print_boolean_matrix(large_mine);
+        MatrixOps.print_matrix(large_mine);
         print_mineweeper(large_mine);
 
     }

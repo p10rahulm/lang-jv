@@ -34,6 +34,6 @@ public class Hadamard_Matrix {
                 }
             }
         }
-        MatrixOps.print_boolean_matrix(current);
+        MatrixOps.print_matrix(current);
     }
 }
