@@ -8,7 +8,7 @@ public class MatrixOps {
         for(int i =0;i<10*15;i++){
             if(i%2==0){a[i/15][i%15]=true;}
         }
-        print_boolean_matrix(a);
+        print_matrix(a);
         //check ragged copy
         int[][] b = new int[][]{{1,2,3},{4,5,6,7},{11,12}};
         print_matrix(b);
@@ -143,57 +143,45 @@ public class MatrixOps {
     }
 
 
-    public static void print_boolean_matrix(boolean[][] a){
-        System.out.print("   ");
+    public static void print_matrix(boolean[][] a){
+        StdOut.printf("%3s","");
         for(int i =0;i<a[1].length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+1);
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%5d",i+1);
         }
         System.out.println();
         for(int i =0;i<a.length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+1);
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%3d",i+1);
             for(int j=0;j<a[i].length;j++){
-                if(a[i][j])System.out.print(" * ");
-                else System.out.print("   ");
+                if(a[i][j])StdOut.printf("%5s","*");
+                else StdOut.printf("%5s"," ");;
             }
             System.out.println();
         }
     }
     public static void print_matrix(int[][] a){
         for(int i =0;i<a.length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+":");
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%4d:",i);
             for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
             System.out.println();
         }
     }
     public static void print_matrix(double[][] a){
         for(int i =0;i<a.length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+":");
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%4d:",i);
             for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
             System.out.println();
         }
     }
     public static void print_matrix(String[][] a){
         for(int i =0;i<a.length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+":");
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%4d:",i);
             for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
             System.out.println();
         }
     }
     public static void print_string_matrix(String[][] a){
         for(int i =0;i<a.length;i++){
-            if(i/100==0)System.out.print(" ");
-            System.out.print(i+":");
-            if(i/10==0)System.out.print(" ");
+            StdOut.printf("%4d:",i);
             for(int j=0;j<a[i].length;j++){System.out.print("\t"+a[i][j]);}
             System.out.println();
         }

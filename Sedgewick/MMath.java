@@ -57,10 +57,16 @@ public class MMath {
         System.out.println(toBase_String(255,16));
         System.out.println(toBase_long(255,16));
         System.out.println(toBase_long(255,2));
+        System.out.println(twopower(0));
+        System.out.println(twopower(1));
+        System.out.println(twopower(2));
+        System.out.println(twopower(10));
+        //System.out.println(twopower(-1));
     }
-    //polynomial evaluation
-    // Horners Method
+
     public static double eval_polynomial(double x, double[]p){
+        //polynomial evaluation
+        // Horners Method
         int num_coeffs = p.length;
         double term=0;
         for(int i = 0;i<num_coeffs;i++){
@@ -105,6 +111,10 @@ public class MMath {
             v = v/base;
         }
         return output;
+    }
+    public static int twopower(int n){
+        if(n<0){throw new ArithmeticException("less than zero");}
+        return(1<<n);
     }
 
 
