@@ -116,6 +116,12 @@ public class MMath {
         if(n<0){throw new ArithmeticException("less than zero");}
         return(1<<n);
     }
+    public static double logfactorial(int n){ //computes log(n!)
+        if(n<0){throw new ArithmeticException("less than zero");}
+        if(n==1){return 0;}
+        return Math.log(n) + logfactorial(n-1);
+    }
+
 
 
 }

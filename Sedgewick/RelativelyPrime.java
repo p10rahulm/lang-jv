@@ -1,9 +1,12 @@
 public class RelativelyPrime {
     public static void main(String[] args){
-        checkrelatively_prime(5,9);checkrelatively_prime(7,700);
+        checkrelatively_prime(5,9);
+        checkrelatively_prime(7,700);
+        StdOut.println(relatively_prime_recursive(24,31));
+        StdOut.println(relatively_prime_recursive(21,35));
         int check_till = Integer.parseInt(args[0]);
         boolean[][] rpm = relativelyprime_matrix(check_till);
-        MatrixOps.print_boolean_matrix(rpm);
+        MatrixOps.print_matrix(rpm);
     }
     public static void checkrelatively_prime(int input1,int input2){
         String relatively_prime ="";
@@ -31,7 +34,13 @@ public class RelativelyPrime {
             }
         }
         return out;
-
     }
+    public static boolean relatively_prime_recursive(int p, int q){
+        //ensure p>q
+        if(q>p){int temp=p;p=q;q=temp;}
+        if(q==0){return(p==1);}
+        return(relatively_prime_recursive(q,p%q));
+    }
+
 
 }

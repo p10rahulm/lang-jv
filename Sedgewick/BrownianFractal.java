@@ -4,7 +4,7 @@ public class BrownianFractal {
         //double H = Double.parseDouble(args[0]); // if we want to take input from user
         // Hurst exponents close to 1 look like mountains, lower than 0.5 look like stock prices!
         // This is the continuous fractal version of the random walk problem
-        for (double H:new double[]{0.05,0.1,0.25,0.5,1,2,4}) {
+        for (double H:new double[]{-0.05,0.05,0.1,0.25,0.5,1,2,4}) {
             StdDraw.clear();
             double s = Math.pow(2,2*H);
             curve(0,0.5,1.0,0.5,0.01,s);
