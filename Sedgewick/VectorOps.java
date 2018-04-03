@@ -299,7 +299,7 @@ public class VectorOps {
         System.out.println("The statement abc contains duplicates is " + duplicate_finder(abc));
     }
     public static int num_minima(int[] input){
-        int num_minimums =0,minsofar=Integer.MAX_VALUE;
+        int num_minimums =0,minsofar= Integer.MAX_VALUE;
         for(int i=0;i<input.length;i++){
             if(input[i]<minsofar){
                 minsofar=input[i];
@@ -437,14 +437,14 @@ public class VectorOps {
         return min;
     }
     public static int array_max(int[] input_array){
-        int max=Integer.MIN_VALUE;
+        int max= Integer.MIN_VALUE;
         for(int i =0;i<input_array.length;i++){
             if(input_array[i]>max){max=input_array[i];}
         }
         return max;
     }
     public static int array_min(int[] input_array){
-        int min=Integer.MAX_VALUE;
+        int min= Integer.MAX_VALUE;
         for(int i =0;i<input_array.length;i++){
             if(input_array[i]<min){min=input_array[i];}
         }

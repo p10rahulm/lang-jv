@@ -106,6 +106,9 @@ public class Random {
     public static double exponentialDistributionRandom(double lambda){
         return(Math.log(Math.random())/lambda);
     }
+    public static double maxwellBoltzmann(double sigma){
+        return(Math.sqrt(Math.pow(gaussian(0,sigma),2)+Math.pow(gaussian(0,sigma),2)+Math.pow(gaussian(0,sigma),2)));
+    }
 
 
 }

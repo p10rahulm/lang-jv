@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class TwoDiceProb {
     public static void main(String[] args){
         double[] dist = new double[12];

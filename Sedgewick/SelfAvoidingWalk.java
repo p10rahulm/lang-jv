@@ -1,5 +1,3 @@
-import java.security.cert.TrustAnchor;
-
 public class SelfAvoidingWalk {
     // the below earlier version had multiple problems at edges. These requried special cases.
     // But by making the boolean array slightly larger fixes the issue.

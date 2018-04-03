@@ -208,6 +208,16 @@ public class ArrayStats {
             StdDraw.filledRectangle(i+0.5,a[i]/2,0.25,Math.abs(a[i]/2));
         }
     }
+    public static double[] scale(double[] a,double y_min,double y_max){
+        double miny = min(a);
+        double maxy = max(a);
+        double[] b = new double[a.length];
+        for (int i =0;i<a.length;i++) {
+            b[i] = y_min+(y_max-y_min)/(maxy-miny)*(a[i]-miny);
+        }
+        return(b);
+    }
+
     public static void main(String[] args){
         double[] a = {1,-1,3.5,10,2,3};
         StdOut.printf("The average is %f\n",average(a));

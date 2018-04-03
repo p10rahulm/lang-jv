@@ -1,6 +1,6 @@
 public class GoldenFibonacci {
     public static void main(String[] args){
-        int num =Integer.parseInt(args[0]);
+        int num = Integer.parseInt(args[0]);
         int temp,f=0, g=1;
         double golden=1.0;
         for(int i =0;i<=num;i++){

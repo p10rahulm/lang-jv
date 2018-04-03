@@ -1,7 +1,7 @@
 // outputs (cos(t) + cost(2t)+...+cos(nt))/n
 public class FourierSpikes {
     public static void main(String[] args){
-        int n =Integer.parseInt(args[0]);
+        int n = Integer.parseInt(args[0]);
         int spaces = 500;
         double[] fourierspikes = new double[spaces];
         double[] angles = new double[spaces];

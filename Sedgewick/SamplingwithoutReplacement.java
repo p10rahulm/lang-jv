@@ -1,5 +1,3 @@
-import javax.rmi.ssl.SslRMIClientSocketFactory;
-
 public class SamplingwithoutReplacement {
     public static void main(String[] args){
         int m = Integer.parseInt(args[0]);

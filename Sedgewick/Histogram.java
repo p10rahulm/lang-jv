@@ -41,9 +41,9 @@ public class Histogram {
         for(int i =0;i<n;i++) {
             StdDraw.text(bucket_upperbounds[i]-0.25,-.25,df.format(bucket_upperbounds[i]));
         }
-        StdDraw.text(l-0.25,0.125,Integer.toString(0));
+        StdDraw.text(l-0.25,0.125, Integer.toString(0));
         for(int i =1;i<=hist_max;i++) {
-            StdDraw.text(l-0.25,i-0.125,Integer.toString(i));
+            StdDraw.text(l-0.25,i-0.125, Integer.toString(i));
         }
 
     }

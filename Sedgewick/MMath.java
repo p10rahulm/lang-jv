@@ -6,7 +6,22 @@ public class MMath {
         return Sqrt.sqrt(a);
     }
     public static boolean isPrime(int n){
-        return PrimeCounter.isPrime(n);
+        int a =2;
+        int check_upto = (int) Math.pow(n,0.5);
+        while(a<=check_upto){
+            if(n%a==0)return false;
+            a++;
+        }
+        return true;
+    }
+    public static boolean isPrime(long n){
+        long a =2;
+        long check_upto = (long) Math.pow(n,0.5);
+        while(a<=check_upto){
+            if(n%a==0)return false;
+            a++;
+        }
+        return true;
     }
     public static int abs(int n){
         if(n<0){return(-n);}
@@ -53,7 +68,6 @@ public class MMath {
         }
         return(term);
     }
-
     public static long toBase_long(int num, int base){
         int v = 1;
         long output=0;
@@ -92,9 +106,6 @@ public class MMath {
         }
         return output;
     }
-
-
-
 
 
 }

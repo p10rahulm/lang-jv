@@ -1,5 +1,3 @@
-import java.time.DayOfWeek;
-
 // please input the month and the year as java Calendar MM YYYY
 public class Calendar {
     public static void main(String[] args){

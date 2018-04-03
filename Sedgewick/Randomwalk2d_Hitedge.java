@@ -1,6 +1,6 @@
 public class Randomwalk2d_Hitedge {
     public static void main(String[] args){
-        int size =Integer.parseInt(args[0]);
+        int size = Integer.parseInt(args[0]);
         int x=0,y = 0,steps=0;
         double random;
         while(Math.abs(x)<size&&Math.abs(y)<size){

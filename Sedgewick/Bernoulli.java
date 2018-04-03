@@ -1,5 +1,3 @@
-import jdk.jshell.StatementSnippet;
-
 public class Bernoulli {
     public static int binomial(int n){
         // simulate flipping a coin n times

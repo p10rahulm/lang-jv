@@ -2,13 +2,7 @@ import java.util.Arrays;
 
 public class PrimeCounter {
     public static boolean isPrime(int num){
-        int a =2;
-        int check_upto = (int) Math.pow(num,0.5);
-        while(a<=check_upto){
-            if(num%a==0)return false;
-            a++;
-        }
-        return true;
+        return MMath.isPrime(num);
     }
     public static void main(String[] args){
         long start = System.currentTimeMillis();
@@ -45,5 +39,6 @@ public class PrimeCounter {
         System.out.println("Time Taken = " + timetaken+" ms.");
 
     }
+
 }
 /*This is insane speed. primes uptil 10m are counted in 50 milliseconds and upto 100m are counted in 800ms*/

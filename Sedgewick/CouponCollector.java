@@ -1,6 +1,6 @@
 public class CouponCollector {
     public static void main(String[] args){
-        int numvals =Integer.parseInt(args[0]);
+        int numvals = Integer.parseInt(args[0]);
         int trials = Integer.parseInt(args[1]);
         int total_attemps =0,max_attempts=0;
         for(int i =0;i<trials;i++){
