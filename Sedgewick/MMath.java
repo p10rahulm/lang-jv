@@ -121,6 +121,17 @@ public class MMath {
         if(n==1){return 0;}
         return Math.log(n) + logfactorial(n-1);
     }
+    public static int bitcounter(int n){
+        //This counts all bits, including the 1 for denoting negative numbers
+        int bits = 0;
+        while(n!=0){
+            if ((n & 1) == 1) {
+                bits++;
+            }
+            n = n>>>1;
+        }
+        return bits;
+    }
 
 
 

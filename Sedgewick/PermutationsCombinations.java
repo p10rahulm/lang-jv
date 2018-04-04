@@ -6,13 +6,22 @@ public class PermutationsCombinations {
     public static void main(String[] args){
         String[] input_array = new String[]{"a","b","c","d","e","f"};
         check_permutations(input_array);
-        // Permutations was a tough problem, combinations should be much easier.
-        // I'm going to iterate over all numbers till 2^n (not including 2^n).
-        // Each numbers binary representation tells us whether the corresponding (binary) digit element exists or not from our output.
-        // We filter for only
+        check_combinations(input_array);
 
 
     }
+    public static void check_combinations(String[] input_array){
+        // Permutations was a tough problem, combinations should be much easier.
+        // I'm going to iterate over all numbers till 2^n (not including 2^n).
+        // Each numbers binary representation tells us whether the corresponding (binary) digit element exists or not from our output.
+        // We filter for only certain number of 1s in the binary representation through a bit counter, for combinations with k elements.
+        int n =32;
+        StdOut.println("The number of bits in n = "+n+" = " + MMath.bitcounter(n));
+
+
+
+    }
+
     public static void check_permutations(String[] input_array){
         ArrayList<String[]> output = new ArrayList<String[]>();
         permute(input_array,output,input_array.length,0);
