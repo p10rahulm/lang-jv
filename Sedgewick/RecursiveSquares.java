@@ -16,7 +16,7 @@ public class RecursiveSquares {
         draw_recursive_squares(center_x-halfsize,center_y+halfsize,halfsize/2,current_level-1);
         draw_recursive_squares(center_x+halfsize,center_y+halfsize,halfsize/2,current_level-1);
         //StdDraw.setPenColor(StdDraw.GRAY);
-        StdDraw.setPenColor(Random.randbetween(0,255),   Random.randbetween(0,255),   Random.randbetween(0,255));
+        StdDraw.setRandomPenColour();
         StdDraw.filledSquare(center_x,center_y,halfsize);
         //StdDraw.setPenColor(Random.randbetween(0,255),   Random.randbetween(0,255),   Random.randbetween(0,255));
         //StdDraw.setPenColor(StdDraw.BLACK);

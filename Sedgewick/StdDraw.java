@@ -1865,6 +1865,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
             keysDown.remove(e.getKeyCode());
         }
     }
+    //This is my own implentation: Rahul Madhavan
+    public static void setRandomPenColour(){
+        setPenColor(Random.randbetween(0,255),   Random.randbetween(0,255),   Random.randbetween(0,255));
+    }
 
 
 
