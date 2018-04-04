@@ -15,6 +15,29 @@ public class MatrixOps {
         System.out.println(Arrays.toString(b));
         System.out.println(Arrays.deepToString(b));
     }
+    public static boolean[][] generate_random_matrix(int numrows, int numcols, double prob_of_true){
+        boolean[][] output = new boolean[numrows][numcols];
+        for (int i = 0; i < numrows; i++) {
+            for (int j = 0; j < numcols; j++) {
+                output[i][j] = Random.bernoulli(prob_of_true);
+            }
+        }
+        return output;
+    }
+    public static void visualize_square_boolean_matrix(boolean[][] input, boolean true_or_false){
+        StdDraw.setYscale(-1,input.length);
+        StdDraw.setXscale(-1,input[0].length);
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                if(input[i][j]==true_or_false){
+                    StdDraw.filledSquare(j,input.length-1-i,0.5);
+                } else {
+                    StdDraw.square(j,input.length-1-i,0.5);
+                }
+            }
+        }
+    }
 
     public static int[][] multiply(int[][] a, int[][] b){
         int x1 = a.length;
