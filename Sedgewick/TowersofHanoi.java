@@ -26,10 +26,12 @@ public class TowersofHanoi {
             move_positions[disc_number]=(move_positions[disc_number]-1+3)%3;//adding three as java doesn't do modulo properly
             int current_pos = move_positions[disc_number];
             System.out.println("Disc " + disc_number + " moves from tower "+(previous_pos+1)+" to tower "+(current_pos+1));
-            //System.out.println("Disc number " + disc_number+" moves left");
         }
         move_positions[0] +=1;
         move_positions =move(disc_number-1,!direction_right,move_positions);
         return move_positions;
+    }
+    public static void draw_current_pos(int[] move_positions){
+
     }
 }

@@ -119,7 +119,10 @@ public class MMath {
     public static boolean nth_bit_is_1(int number,int n){
         return ((number>>>n&1)==1);
     }
-
+    public static int hamming_distance(int a, int b){
+        //number of bits that are different
+        return(bitcounter(a^b));
+    }
 
 
     public static void main(String[] args){
