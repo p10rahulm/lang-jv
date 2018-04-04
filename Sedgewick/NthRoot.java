@@ -1,4 +1,4 @@
-public class nthroot {
+public class NthRoot {
     public static void main(String[] args){
         double input = Integer.parseInt(args[0]);
         double nthroot = Integer.parseInt(args[1]);

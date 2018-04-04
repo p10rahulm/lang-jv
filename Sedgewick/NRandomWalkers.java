@@ -1,4 +1,4 @@
-public class nrandom_walkers {
+public class NRandomWalkers {
     public static void main(String[] args){
         int size = Integer.parseInt(args[0]);
         int trials = Integer.parseInt(args[1]);

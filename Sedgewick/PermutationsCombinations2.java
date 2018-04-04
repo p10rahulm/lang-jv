@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PermutationsToN {
+public class PermutationsCombinations2 {
     public static void main(String[] args){
         long startTime = System.nanoTime();
         StdOut.println(permute_till_n(6));
@@ -49,11 +49,6 @@ public class PermutationsToN {
         return permutations;
     }
     public static ArrayList permute_array(String[] arr){
-        // permute all the numbers till n,
-        // ie if we have n = 3, output should be [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-        // or correspondingly with 0 1 2
-
-        // Hmm this looks like a decently hard problem.
         HashSet<String> currentnums = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {currentnums.add(arr[i]);}
         ArrayList permutations = new ArrayList();
@@ -61,10 +56,6 @@ public class PermutationsToN {
         return permutations;
     }
     public static ArrayList permute_till_n(int n){
-        // permute all the numbers till n,
-        // ie if we have n = 3, output should be [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-        // or correspondingly with 0 1 2
-        // Hmm this looks like a decently hard problem.
         Set<Integer> currentnums = new HashSet<>();
         for (int i = 0; i < n; i++) {currentnums.add(i+1);}
         ArrayList permutations = new ArrayList();
@@ -73,9 +64,7 @@ public class PermutationsToN {
     }
     public static ArrayList recurse_nums(Set<Integer> currentnums, String currentstring, ArrayList list_of_permutes){
         if(currentnums.size()==1){
-            //StdOut.println("in1");
             int elem = currentnums.iterator().next();
-            //StdOut.println(currentstring + Integer.toString(elem));
             list_of_permutes.add(currentstring + Integer.toString(elem));
             return list_of_permutes;
         }
@@ -105,14 +94,14 @@ public class PermutationsToN {
         }
         return list_of_permutes;
     }
-    /**
-     * permutation function
-     * @param str string to calculate permutation for
-     * @param l starting index
-     * @param r end index
-     */
-    private static void permute(String str, int l, int r)
-    {
+
+    private static void permute(String str, int l, int r) {
+        /**
+         * permutation function
+         * @param str string to calculate permutation for
+         * @param l starting index
+         * @param r end index
+         */
         if (l == r)
             System.out.println(str);
         else
@@ -125,16 +114,14 @@ public class PermutationsToN {
             }
         }
     }
-
-    /**
-     * Swap Characters at position
-     * @param a string value
-     * @param i position 1
-     * @param j position 2
-     * @return swapped string
-     */
-    public static String swap(String a, int i, int j)
-    {
+    public static String swap(String a, int i, int j){
+        /**
+         * Swap Characters at position
+         * @param a string value
+         * @param i position 1
+         * @param j position 2
+         * @return swapped string
+         */
         char temp;
         char[] charArray = a.toCharArray();
         temp = charArray[i] ;
@@ -142,5 +129,8 @@ public class PermutationsToN {
         charArray[j] = temp;
         return String.valueOf(charArray);
     }
+
+
+
 
 }
