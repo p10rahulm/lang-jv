@@ -48,22 +48,6 @@ public class MMath {
         sum += term;
         return(Math.log(n) + 0.577215664901532 + sum);
     }
-    public static void main(String[] args){
-        int n =101;
-        StdOut.println(harmonic(n) +" "+Harmonic.H_small(n));
-        double[] p = {1,2,3};
-        System.out.println(eval_polynomial(2.0,p));
-        System.out.println(toBase_String(15,16));
-        System.out.println(toBase_String(255,16));
-        System.out.println(toBase_long(255,16));
-        System.out.println(toBase_long(255,2));
-        System.out.println(twopower(0));
-        System.out.println(twopower(1));
-        System.out.println(twopower(2));
-        System.out.println(twopower(10));
-        //System.out.println(twopower(-1));
-    }
-
     public static double eval_polynomial(double x, double[]p){
         //polynomial evaluation
         // Horners Method
@@ -132,7 +116,27 @@ public class MMath {
         }
         return bits;
     }
+    public static boolean nth_bit_is_1(int number,int n){
+        return ((number>>>n&1)==1);
+    }
 
 
+
+    public static void main(String[] args){
+        int n =101;
+        StdOut.println(harmonic(n) +" "+Harmonic.H_small(n));
+        double[] p = {1,2,3};
+        System.out.println(eval_polynomial(2.0,p));
+        System.out.println(toBase_String(15,16));
+        System.out.println(toBase_String(255,16));
+        System.out.println(toBase_long(255,16));
+        System.out.println(toBase_long(255,2));
+        System.out.println(twopower(0));
+        System.out.println(twopower(1));
+        System.out.println(twopower(2));
+        System.out.println(twopower(10));
+        //System.out.println(twopower(-1));
+        for (int i = -32; i < 32; i++) {StdOut.println("The number of bits in n = "+i+" = " + MMath.bitcounter(i));}
+    }
 
 }

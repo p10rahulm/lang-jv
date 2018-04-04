@@ -15,12 +15,34 @@ public class PermutationsCombinations {
         // I'm going to iterate over all numbers till 2^n (not including 2^n).
         // Each numbers binary representation tells us whether the corresponding (binary) digit element exists or not from our output.
         // We filter for only certain number of 1s in the binary representation through a bit counter, for combinations with k elements.
-        int n =32;
-        StdOut.println("The number of bits in n = "+n+" = " + MMath.bitcounter(n));
-
-
-
+        ArrayList<String[]> combinations = new ArrayList<String[]>();
+        combinations_of_size_k(input_array,combinations,2);
+        System.out.println("The number of combinations of all = "+ combinations.size());
+        /*for (int i = 0; i < combinations.size(); i++) {
+            String[] out = combinations.get(i);
+            VectorOps.printvector(out);
+        }*/
+        combinations_timing();
     }
+    public static ArrayList<String[]> combinations_of_size_k(String[] str_array,ArrayList<String[]> output_Arraylist,int k){
+        String[] out;
+        int bit_counter;
+        for(int i =0;i<MMath.twopower(str_array.length);i++){
+            if(MMath.bitcounter(i)==k){
+                out = new String[k];
+                bit_counter=0;
+                for (int j = 0; j < str_array.length; j++) {
+                    if(MMath.nth_bit_is_1(i,j)) {
+                        out[bit_counter] = str_array[j];
+                        bit_counter++;
+                    }
+                }
+                output_Arraylist.add(out);
+            }
+        }
+        return output_Arraylist;
+    }
+
 
     public static void check_permutations(String[] input_array){
         ArrayList<String[]> output = new ArrayList<String[]>();
@@ -35,7 +57,7 @@ public class PermutationsCombinations {
         permute(input_array,output,3,0);
         System.out.println("The number of permutations of 3 elements from 6 = "+ output.size());
 
-        timing();
+        permutations_timing();
     }
 
 
@@ -63,8 +85,21 @@ public class PermutationsCombinations {
         array[y] = temp;
         return;
     }
+    private static void combinations_timing(){
+        String[] input_array = new String[]{"a","b","c","d","e","f"};
+        long startTime,endTime,duration;
+        for (int i = 0; i <= 6; i++) {
+            startTime = System.nanoTime();
+            ArrayList<String[]> combinations = new ArrayList<String[]>();
+            combinations_of_size_k(input_array,combinations,i);
+            //System.out.println("The number of combinations of size " + i + " = "+ combinations.size());
+            endTime = System.nanoTime();
+            duration = (endTime - startTime);
+            System.out.println("combinations of "+ i + " elements from 6 "+duration/1000+"Mu.s");
+        }
+    }
 
-    private static void timing(){
+    private static void permutations_timing(){
         //Swap Method
         long startTime = System.nanoTime();
         String[] input_array = new String[]{"a","b","c","d","e","f"};
