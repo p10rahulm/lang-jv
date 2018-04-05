@@ -1,7 +1,7 @@
 public class ConvaysGameofLife {
     public static void main(String[] args){
         boolean[][] gamescene = new boolean[50+2][50+2];// we add
-        set_initial_state(gamescene);
+        set_initial_state1(gamescene);
         //MatrixOps.print_matrix(gamescene);
         play_game(gamescene);
     }
