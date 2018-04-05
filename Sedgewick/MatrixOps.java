@@ -38,6 +38,43 @@ public class MatrixOps {
             }
         }
     }
+    public static void visualize_boolean_matrix(boolean[][] input, boolean true_or_false){
+        StdDraw.setYscale(-1,input.length);
+        StdDraw.setXscale(-1,input[0].length);
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                if(input[i][j]==true_or_false){
+                    StdDraw.filledSquare(j,input.length-1-i,0.5);
+                } else {
+                    StdDraw.square(j,input.length-1-i,0.5);
+                }
+            }
+        }
+    }
+    public static void visualize_boolean_matrix(boolean[][] input, boolean true_or_false,boolean no_square){
+        StdDraw.setYscale(-1,input.length);
+        StdDraw.setXscale(-1,input[0].length);
+        if(no_square){
+            for (int i = 0; i < input.length; i++) {
+                for (int j = 0; j < input[0].length; j++) {
+                    if (input[i][j] == true_or_false) {
+                        StdDraw.filledSquare(j, input.length - 1 - i, 0.5);
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < input.length; i++) {
+                for (int j = 0; j < input[0].length; j++) {
+                    if (input[i][j] == true_or_false) {
+                        StdDraw.filledSquare(j, input.length - 1 - i, 0.5);
+                    } else {
+                        StdDraw.square(j, input.length - 1 - i, 0.5);
+                    }
+                }
+            }
+        }
+    }
 
     public static int[][] multiply(int[][] a, int[][] b){
         int x1 = a.length;
