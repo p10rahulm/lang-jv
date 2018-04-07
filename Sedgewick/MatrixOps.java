@@ -15,6 +15,80 @@ public class MatrixOps {
         System.out.println(Arrays.toString(b));
         System.out.println(Arrays.deepToString(b));
     }
+    public static double[][] scale_to_x(double[][] input,double x){
+        double[][] output = new double[input.length][input[0].length];
+        double max=Double.NEGATIVE_INFINITY,min=Double.POSITIVE_INFINITY;
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                double v = input[i][j];
+                if(v>max&&v!=Double.POSITIVE_INFINITY)max=v;
+                if(v<min&&v!=Double.NEGATIVE_INFINITY)min=v;
+            }
+        }
+        //StdOut.printf("max =%f, min = %f\n",max,min);
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                output[i][j] = (input[i][j]-min)*x/(max-min);
+            }
+        }
+        return output;
+    }
+    public static double[][] scale_to_x(int[][] input,double x){
+        double[][] output = new double[input.length][input[0].length];
+        int max=Integer.MIN_VALUE,min=Integer.MAX_VALUE;
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                int v = input[i][j];
+                if(v>max)max=v;
+                if(v<min)min=v;
+            }
+        }
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                output[i][j] = (double)(input[i][j]-min)*x/(max-min);
+            }
+        }
+        return output;
+    }
+
+    public static double[][] normalize(double[][] input){
+        double[][] output = new double[input.length][input[0].length];
+        double max=Double.NEGATIVE_INFINITY,min=Double.POSITIVE_INFINITY;
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                double v = input[i][j];
+                if(v>max)max=v;
+                if(v<min)min=v;
+            }
+        }
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                output[i][j] = (double)(input[i][j]-min)/(max-min);
+            }
+        }
+        return output;
+    }
+
+    public static double[][] normalize(int[][] input){
+        double[][] output = new double[input.length][input[0].length];
+        int max=Integer.MIN_VALUE,min=Integer.MAX_VALUE;
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                int v = input[i][j];
+                if(v>max)max=v;
+                if(v<min)min=v;
+            }
+        }
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[0].length; j++) {
+                output[i][j] = (double)(input[i][j]-min)/(max-min);
+            }
+        }
+        return output;
+    }
+
     public static boolean[][] generate_random_matrix(int numrows, int numcols, double prob_of_true){
         boolean[][] output = new boolean[numrows][numcols];
         for (int i = 0; i < numrows; i++) {
