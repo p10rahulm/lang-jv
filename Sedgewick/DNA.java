@@ -1,10 +1,8 @@
-import com.sun.jdi.ArrayReference;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-public class GeneFinder {
+public class DNA {
     public static final String start_codon = "ATG";
 
     public static String[] stop_codons = new String[]{"TAG","TAA","TGA"};
@@ -16,8 +14,55 @@ public class GeneFinder {
         input_seq = "ATAGATGCATAGCGCATAGCTAGATGTGCTAGC";
         gene = output_gene_if_exists(input_seq);
         StdOut.println(gene);
+        StdOut.println(isvalid_dna(gene));
+        StdOut.println(isvalid_dna("GTRA"));
+        StdOut.println(complement(gene));
+        StdOut.println("GATCGATC");
+        StdOut.println(reverse_complement("GATCGATC"));
+        StdOut.println(reverse_complement_is_same("GATCGATC"));
 
     }
+    public static boolean reverse_complement_is_same(String dna_string){
+        String reverse_complement = reverse_complement(dna_string);
+        int comparison = reverse_complement.compareTo(dna_string);
+        if(comparison==0)return true;
+        return false;
+    }
+    public static String reverse_complement(String dna_string){
+        StringBuilder s = new StringBuilder("");
+        int n = dna_string.length();
+        for (int i = 0; i < dna_string.length(); i++) {
+            if(dna_string.charAt(n-1-i)=='G'){s.append('C');}
+            else if(dna_string.charAt(n-1-i)=='C'){s.append('G');}
+            else if(dna_string.charAt(n-1-i)=='T'){s.append('A');}
+            else if(dna_string.charAt(n-1-i)=='A'){s.append('T');}
+        }
+        return s.toString();
+    }
+    public static String complement(String dna_string){
+        StringBuilder s = new StringBuilder("");
+        for (int i = 0; i < dna_string.length(); i++) {
+            if(dna_string.charAt(i)=='G'){s.append('C');}
+            else if(dna_string.charAt(i)=='C'){s.append('G');}
+            else if(dna_string.charAt(i)=='T'){s.append('A');}
+            else if(dna_string.charAt(i)=='A'){s.append('T');}
+
+        }
+        return s.toString();
+    }
+    public static boolean isvalid_dna(String dna_string){
+        char[] chari = dna_string.toCharArray();
+        boolean valid_dna = true;
+        for (int i = 0; i < dna_string.length(); i++) {
+            if(chari[i]!='A'&&chari[i]!='C'&&chari[i]!='G'&&chari[i]!='T'){
+                StdOut.println(chari[i]);
+                valid_dna=false;
+                break;
+            }
+        }
+        return valid_dna;
+    }
+
     public static String output_gene_if_exists(String input_seq){
         int start = input_seq.indexOf(start_codon);
         ArrayList<Integer> ends = new ArrayList<Integer>();
