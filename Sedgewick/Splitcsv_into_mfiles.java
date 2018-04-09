@@ -9,6 +9,7 @@ public class Splitcsv_into_mfiles {
             out[i] = new Out(name +i + ".txt");
         }
         In in = new In(name+".csv");
+
         while (!in.isEmpty()){
             String line = in.readLine();
             //StdOut.println(line);
