@@ -1,6 +1,7 @@
-import java.awt.*;
+//java HistogramofGrayscale data/pics/sadbeauty.jpg
+import java.awt.Color;
 
-public class HistogramofGrayscale {
+ public class HistogramofGrayscale {
     public static void main(String[] args){
         String grayscale_image_filename = args[0];
         Picture grayscale_pic = new Picture(grayscale_image_filename);
@@ -12,6 +13,13 @@ public class HistogramofGrayscale {
                 luminance_frequencies[lum]+=1;
             }
         }
-        Histogram
+        double[] histogram_x = new double[256];
+        for (int i = 0; i < histogram_x.length; i++) {
+            histogram_x[i]=i;
+        }
+        //VectorOps.printvector(histogram_x);
+        //VectorOps.printvector(luminance_frequencies);
+        Histogram.histogram_from_hist_array(luminance_frequencies,histogram_x,10);
     }
+
 }

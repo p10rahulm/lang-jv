@@ -47,4 +47,75 @@ public class Histogram {
         }
 
     }
+    private static void initializebucket_upper_lower_bounds(double[] bucket_lowerbounds,double[] bucket_upperbounds,double lower_x, double upper_x,int numbuckets){
+        for(int i =0;i<numbuckets;i++){
+            bucket_upperbounds[i] = lower_x+(upper_x-lower_x)/numbuckets*(i+1);
+        }
+        for(int i =0;i<numbuckets;i++){
+            bucket_lowerbounds[i] = lower_x+(upper_x-lower_x)/numbuckets*(i);
+        }
+        return;
+    }
+    private static void fillbuckets(int[] buckets,double[] bucket_lowerbounds,double[] bucket_upperbounds,double[] histogram_x, int[] histogram_y){
+        // Since we do not know the distribution within a single bucket x, we will assume the concentration is at the x.
+        // While other distributions are possible, we will not attempt them here.
+        for(int i =0;i<histogram_y.length;i++){
+            int num_in_bucket = histogram_y[i];
+            double bucket_point = histogram_x[i];
+            boolean found = false;
+            int j =0;
+            while(found == false&&j<bucket_upperbounds.length){
+                if(bucket_point<bucket_upperbounds[j]&&bucket_point>=bucket_lowerbounds[j]){
+                    buckets[j]+=num_in_bucket;
+                    found=true;
+                } else{
+                    j++;
+                }
+            }
+        }
+        return;
+    }
+    private static void draw_histogram(double l,double r,int hist_max,double[] bucket_upperbounds,int[] buckets,int number_of_buckets){
+        StdDraw.setXscale(l-0.5,r);
+        StdDraw.setYscale(-0.5,hist_max);
+        StdDraw.line(l-0.5,0,r,0);
+        StdDraw.line(l,-0.5,l,hist_max);
+        // Draw the first rectangle
+        StdDraw.filledRectangle((bucket_upperbounds[0]+l)/2,(double) buckets[0]/2,(bucket_upperbounds[0]-l)/2,(double)buckets[0]/2);
+        for(int i =1;i<number_of_buckets;i++){
+            StdDraw.filledRectangle((bucket_upperbounds[i]+bucket_upperbounds[i-1])/2,(double) buckets[i]/2,(bucket_upperbounds[i]-bucket_upperbounds[i-1])/2,(double)buckets[i]/2);
+        }
+        StdDraw.text(l+0.125,-.25,Double.toString(l));
+        DecimalFormat df = new DecimalFormat(".#");
+        for(int i =0;i<number_of_buckets;i++) {
+            StdDraw.text(bucket_upperbounds[i]-0.25,-.25,df.format(bucket_upperbounds[i]));
+        }
+        StdDraw.text(l-0.25,0.125, Integer.toString(0));
+        for(int i =1;i<=hist_max;i++) {
+            StdDraw.text(l-0.25,i-0.125, Integer.toString(i));
+        }
+
+    }
+    public static void histogram_from_hist_array(int[] histogram_y,double[] histogram_x,int num_histogram_buckets) {
+        //histogram-ys indicate the number of occurances in the histogram x_s, so it is an int array
+        double l = VectorOps.array_min(histogram_x);
+        double r = VectorOps.array_max(histogram_x);
+        int n = num_histogram_buckets;
+        double[] bucket_upperbounds = new double[n];
+        double[] bucket_lowerbounds = new double[n];
+        initializebucket_upper_lower_bounds(bucket_lowerbounds, bucket_upperbounds, l, r, n);
+
+        int[] buckets = new int[n];
+        fillbuckets(buckets, bucket_lowerbounds, bucket_upperbounds, histogram_x, histogram_y);
+
+        int hist_max = VectorOps.array_max(buckets); // ditch hist_min as it's not sure that we want axis moved ,hist_min=buckets[0];
+        //System.out.println("histmax = " + hist_max);
+        //VectorOps.printvector(bucket_upperbounds);
+        //VectorOps.printvector(bucket_lowerbounds);
+        //VectorOps.printvector(buckets);
+        draw_histogram(l,r,hist_max,bucket_upperbounds,buckets,n);
+    }
+
 }
+
+
