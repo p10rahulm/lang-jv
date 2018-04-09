@@ -20,7 +20,21 @@ public class DNA {
         StdOut.println("GATCGATC");
         StdOut.println(reverse_complement("GATCGATC"));
         StdOut.println(reverse_complement_is_same("GATCGATC"));
+        StdOut.println(iscircular_shift("TGACGAC","ACTGACG"));
+        StdOut.println(iscircular_shift2("TGACGAC","ACTGACG"));
 
+    }
+    public static boolean iscircular_shift2(String a, String b){
+        for (int i = 0; i < a.length(); i++) {
+            //StdOut.println (a.substring(i)+a.substring(0,i));
+            if((a.substring(i)+a.substring(0,i)).compareTo(b)==0){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean iscircular_shift(String a, String b){
+        return (a+a).contains(b);
     }
     public static boolean reverse_complement_is_same(String dna_string){
         String reverse_complement = reverse_complement(dna_string);
@@ -50,7 +64,13 @@ public class DNA {
         }
         return s.toString();
     }
+
+
     public static boolean isvalid_dna(String dna_string){
+        String pattern= "^[ACGT]+$";
+        return dna_string.matches(pattern);
+    }
+    public static boolean isvalid_dna2(String dna_string){
         char[] chari = dna_string.toCharArray();
         boolean valid_dna = true;
         for (int i = 0; i < dna_string.length(); i++) {
