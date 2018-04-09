@@ -34,7 +34,7 @@ public class DNA {
         return false;
     }
     public static boolean iscircular_shift(String a, String b){
-        return (a+a).contains(b);
+        return (a.length()==b.length())&&((a+a).contains(b));
     }
     public static boolean reverse_complement_is_same(String dna_string){
         String reverse_complement = reverse_complement(dna_string);

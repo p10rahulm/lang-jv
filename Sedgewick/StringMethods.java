@@ -4,11 +4,13 @@ public class StringMethods {
         StdOut.printf("The string %s is %sa palindrome.\n",s,(isPalindrome(s)?"":"not "));
         VectorOps.printvector(split_by_whitespace(s));
         StdOut.printf("The string \"%s\" is %salphabetically sorted.\n",s,(check_string_alphabetically_sorted(split_by_whitespace(s))?"":"not "));
+        StdOut.println(reverse_string(s));
         s = "hi.txt";
         StdOut.printf("The file %s has filename base \"%s\" and extension \"%s\".\n",s,filename_extension(s)[0],filename_extension(s)[1]);
         s = "http://www.yoyoma.com";
-        StdOut.printf("The string %s is %sa link.\n",s,(islink(s)?"":"not "));
+        StdOut.printf("The string %s is %sa link.\n",s,(InternetLinks.islink(s)?"":"not "));
         StdOut.println("A compared to B is = "+"A".compareTo("B"));
+        StdOut.println(reverse_string("Hi Hello how are you?"));
     }
     public static boolean isPalindrome(String s){
         int sl =s.length();
@@ -49,8 +51,12 @@ public class StringMethods {
         }
         return true;
     }
-    public static boolean islink(String s){
-        return s.startsWith("http://")&&(s.endsWith(".com")||s.endsWith(".edu")||s.endsWith(".org")||s.endsWith(".in"));
+    public static String reverse_string(String s){
+        int n = s.length();
+        if(n<=1)return s;
+        String a = s.substring(0,n/2);
+        String b = s.substring(n/2,n);
+        return (reverse_string(b)+reverse_string(a));
     }
 
 }
