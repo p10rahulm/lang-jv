@@ -4,7 +4,6 @@ public class ElectricPotential_Visualization {
 
     public static void main(String[] args){
         double[][] location_and_charges = MatrixOps.readDouble2D();
-        MatrixOps.print_matrix(location_and_charges);
         Charge[] charges = load_charges(location_and_charges);
         int size = 512;
         draw_charges(charges,512,300,1,1);
@@ -16,17 +15,12 @@ public class ElectricPotential_Visualization {
         for (int i = 0; i < pic_width; i++) {
             for (int j = 0; j < pic_height; j++) {
                 for (int k = 0; k < charges.length; k++) {
-                    //StdOut.println(charges[k].potentialAt(0.5,0.5));
                     potentials[i][j]+=charges[k].potentialAt((double) i/pic_width*space_width,(double)j/pic_height*space_height);
 
                 }
             }
         }
-//        MatrixOps.print_matrix(potentials);
-        StdOut.println(potentials[1][1]);
         int[][] potential_at_scaled = scaled_potential(potentials);
-        StdOut.println(potential_at_scaled[1][1]);
-        //MatrixOps.print_matrix(potential_at_scaled);
         for (int i = 0; i < pic_width; i++) {
             for (int j = 0; j < pic_height; j++) {
                 int col_gray = potential_at_scaled[i][j];
@@ -35,7 +29,7 @@ public class ElectricPotential_Visualization {
             }
         }
         pic.show();
-        StdOut.print("done!");
+        StdOut.print("The grayscale visualization should appear on a different window");
     }
     private static int[][] scaled_potential (double[][] potentials){
         int[][]scaled_potential = new int[potentials.length][potentials[0].length];
