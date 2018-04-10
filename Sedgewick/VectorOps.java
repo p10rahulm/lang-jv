@@ -19,6 +19,13 @@ public class VectorOps {
         }
         return (b);
     }
+    public static double[] reverse(double[] a) {
+        double[] b = new double[a.length];
+        for (int i = 0; i < a.length; i++) {
+            b[a.length - i - 1] = a[i];
+        }
+        return (b);
+    }
     public static String[] reverse(String[] a) {
         String t;
         for (int i = 0; i < (a.length + 1) / 2; i++) {

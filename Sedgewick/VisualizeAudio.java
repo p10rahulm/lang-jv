@@ -1,3 +1,4 @@
+//java VisualizeAudio < data/elise.txt
 public class VisualizeAudio {
     public static int sampling_rate = 44100;
     public static void main(String[] args){
@@ -23,7 +24,7 @@ public class VisualizeAudio {
                     //StdDraw.setPenRadius(0.005);
                     //StdDraw.line(t-1,y[t-1],t,y[t]);
                 }
-                StdDraw.show((int)(duration*1000));
+                StdDraw.pause((int)(duration*1000));
             }
 
 
