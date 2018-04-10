@@ -123,6 +123,18 @@ public class MMath {
         //number of bits that are different
         return(bitcounter(a^b));
     }
+    public static double log_base(double a, double base){
+        return Math.log(a)/Math.log(base);
+    }
+    public static double log_base(int a, int base){
+        return Math.log(a)/Math.log(base);
+    }
+    public static double log_base(double a, int base){
+        return Math.log(a)/Math.log(base);
+    }
+    public static double log_base(int a, double base){
+        return Math.log(a)/Math.log(base);
+    }
 
 
     public static void main(String[] args){

@@ -11,6 +11,33 @@ public class StringMethods {
         StdOut.printf("The string %s is %sa link.\n",s,(InternetLinks.islink(s)?"":"not "));
         StdOut.println("A compared to B is = "+"A".compareTo("B"));
         StdOut.println(reverse_string("Hi Hello how are you?"));
+        StdOut.println(entropy("Hi Hello how are you?"));
+        StdOut.println(entropy("My name is Anthony Gonzalves"));
+        StdOut.println(entropy("The quick Brown Fox Jumped Over the lazy Dog 012345789"));
+    }
+    private static int[] fill_buckets_for_entropy(String s){
+        s = s.toLowerCase();
+        String non_alpha_numeric = "[^a-z0-9]";
+        s = s.replaceAll(non_alpha_numeric,"");
+        char[] chararray = s.toCharArray();
+        int[] freq = new int[36];//26 chars and 10 numerics
+        for (int i = 0; i < chararray.length; i++) {
+            int charbucket = ((int)(chararray[i]-'0') >10)?(int)(chararray[i]-'a'+10):(int)(chararray[i]-'0');
+            freq[charbucket]+=1;
+        }
+        return freq;
+    }
+    public static double entropy(String s){
+        int[] freq = fill_buckets_for_entropy(s);
+        double entropy = 0;
+        for (int i = 0; i < freq.length; i++) {
+            if(freq[i]>0) {
+                double prob_c = (double) freq[i] / s.length();
+                entropy -= prob_c * MMath.log_base(prob_c, 2);
+            }
+        }
+        return entropy;
+
     }
     public static boolean isPalindrome(String s){
         int sl =s.length();
