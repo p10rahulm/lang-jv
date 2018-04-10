@@ -15,6 +15,8 @@ public class ImageEffects {
         wave_filter(pic,10,512);
         wave_filter(pic,10,64);
         glass_filter(pic,5);
+        digital_zoom(pic,5,0.5,0.5);
+        digital_zoom(pic,2,0,0);
     }
     public static void glass_filter(Picture pic,int randomization_pixels){
         Picture picout = new Picture(pic.width(),pic.height());
@@ -27,6 +29,38 @@ public class ImageEffects {
             }
         }
         picout.show();
+    }
+    public static void digital_zoom(Picture pic,int zoom, double center_x,double center_y){
+        // center_x and center_y are between 0 and 1. zoomx is an int (say below 15). the output width and height are same as input.
+        // We need to calculate input width and height to scale post digital zoom.
+        int input_width = pic.width()/zoom;
+        int input_height = pic.height()/zoom;
+        int start_x,start_y,end_x,end_y;
+        center_x = center_x*pic.width();
+        center_y = center_y*pic.height();
+        if(center_x>input_width/2){
+            start_x=(int)(center_x-input_width/2);
+            end_x =(int)(center_x+input_width/2);
+        } else{
+            start_x = 0;
+            end_x = input_width;
+        }
+        if(center_y>input_height/2){
+            start_y=(int)(center_y-input_height/2);
+            end_y =(int)(center_y+input_height/2);
+        } else{
+            start_y = 0;
+            end_y = input_height;
+        }
+        Picture unscaled_pic = new Picture(input_width,input_height);
+        for (int i = 0; i < unscaled_pic.width(); i++) {
+            for (int j = 0; j < unscaled_pic.height(); j++) {
+                Color col = pic.get(start_x+i,start_y+j);
+                unscaled_pic.set(i,j,col);
+            }
+        }
+        Picture scaled_pic = ScalePicture.scalePic(unscaled_pic,pic.width(),pic.height());
+        scaled_pic.show();
     }
     public static void wave_filter(Picture pic,int param_multiplier, int param_pixels){
         Picture picout = new Picture(pic.width(),pic.height());
@@ -45,6 +79,7 @@ public class ImageEffects {
         }
         picout.show();
     }
+
     public static void swirl_filter(Picture pic){
         // Lets get to Pi/4 at pic edges
         Picture picout = new Picture(pic.width(),pic.height());
