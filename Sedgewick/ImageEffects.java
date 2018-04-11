@@ -5,20 +5,24 @@ import java.awt.Color;
 public class ImageEffects {
     public static void main(String[] args){
         Picture pic = new Picture(args[0]);
+        String filename_base = StringMethods.filename_extension(args[0])[0];
         pic.show();
-        rotation_filter(pic,Math.PI/6);
+        rotation_filter(pic,Math.PI/6).save(filename_base+"rotational_filter.jpg");
         //rotation_filter_sedgewick(pic,Math.PI/6);
-        swirl_filter(pic);
-        wave_filter(pic,20,128);
-        wave_filter(pic,10,128);
-        wave_filter(pic,10,256);
-        wave_filter(pic,10,512);
-        wave_filter(pic,10,64);
-        glass_filter(pic,5);
-        digital_zoom(pic,5,0.5,0.5);
-        digital_zoom(pic,2,0,0);
+        swirl_filter(pic).save(filename_base+"swirl_filter.jpg");
+        wave_filter(pic,20,128).save(filename_base+"wave_filter_20mult_128pix.jpg");
+        wave_filter(pic,10,128).save(filename_base+"wave_filter_10mult_128pix.jpg");
+        wave_filter(pic,10,256).save(filename_base+"wave_filter_10mult_256pix.jpg");
+        wave_filter(pic,10,512).save(filename_base+"wave_filter_10mult_512pix.jpg");
+        wave_filter(pic,10,64).save(filename_base+"wave_filter_10mult_64pix.jpg");
+        glass_filter(pic,5).save(filename_base+"glass_filter_5_rcount.jpg");
+        glass_filter(pic,3).save(filename_base+"glass_filter_3_rcount.jpg");
+        glass_filter(pic,1).save(filename_base+"glass_filter_1_rcount.jpg");
+        glass_filter(pic,10).save(filename_base+"glass_filter_10_rcount.jpg");
+        digital_zoom(pic,5,0.5,0.5).save(filename_base+"digitalzoom_5_zoom_0.5x_0.5y.jpg");
+        digital_zoom(pic,2,0,0).save(filename_base+"digitalzoom_2_zoom_0x_0y.jpg");
     }
-    public static void glass_filter(Picture pic,int randomization_pixels){
+    public static Picture glass_filter(Picture pic,int randomization_pixels){
         Picture picout = new Picture(pic.width(),pic.height());
         for (int i = 0; i < picout.width(); i++) {
             for (int j = 0; j < picout.height(); j++) {
@@ -29,8 +33,9 @@ public class ImageEffects {
             }
         }
         picout.show();
+        return picout;
     }
-    public static void digital_zoom(Picture pic,int zoom, double center_x,double center_y){
+    public static Picture digital_zoom(Picture pic,int zoom, double center_x,double center_y){
         // center_x and center_y are between 0 and 1. zoomx is an int (say below 15). the output width and height are same as input.
         // We need to calculate input width and height to scale post digital zoom.
         int input_width = pic.width()/zoom;
@@ -61,8 +66,9 @@ public class ImageEffects {
         }
         Picture scaled_pic = ScalePicture.scalePic(unscaled_pic,pic.width(),pic.height());
         scaled_pic.show();
+        return scaled_pic;
     }
-    public static void wave_filter(Picture pic,int param_multiplier, int param_pixels){
+    public static Picture wave_filter(Picture pic,int param_multiplier, int param_pixels){
         Picture picout = new Picture(pic.width(),pic.height());
         int c_i = pic.width()/2;
         int c_j = pic.height()/2;
@@ -78,9 +84,10 @@ public class ImageEffects {
             }
         }
         picout.show();
+        return picout;
     }
 
-    public static void swirl_filter(Picture pic){
+    public static Picture swirl_filter(Picture pic){
         // Lets get to Pi/4 at pic edges
         Picture picout = new Picture(pic.width(),pic.height());
         int c_i = pic.width()/2;
@@ -102,8 +109,9 @@ public class ImageEffects {
             }
         }
         picout.show();
+        return picout;
     }
-    public static void rotation_filter_sedgewick(Picture pic, double theta){
+    public static Picture rotation_filter_sedgewick(Picture pic, double theta){
         Picture picout = new Picture(pic.width(),pic.height());
         int c_i = pic.width()/2;
         int c_j = pic.height()/2;
@@ -119,8 +127,9 @@ public class ImageEffects {
             }
         }
         picout.show();
+        return picout;
     }
-    public static void rotation_filter(Picture pic, double theta){
+    public static Picture rotation_filter(Picture pic, double theta){
         Picture picout = new Picture(pic.width(),pic.height());
         int c_i = pic.width()/2;
         int c_j = pic.height()/2;
@@ -141,5 +150,6 @@ public class ImageEffects {
             }
         }
         picout.show();
+        return picout;
     }
 }
