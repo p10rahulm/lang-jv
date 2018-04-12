@@ -1,4 +1,4 @@
-public class distance_from_origin {
+public class DistancefromOrigin {
     public static void main(String[] args){
         double x = Double.parseDouble(args[0]);
         double y = Double.parseDouble(args[1]);

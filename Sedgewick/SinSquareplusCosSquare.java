@@ -1,4 +1,4 @@
-public class check_sin2_plus_cos2 {
+public class SinSquareplusCosSquare {
     public static void main(String[] args){
         double  a = Math.pow(Math.sin(Double.parseDouble(args[0])),2);
         double  b = Math.pow(Math.cos(Double.parseDouble(args[0])),2);

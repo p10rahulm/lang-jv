@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class VectorOps {
     public static double euclidean_distance(double[] a, double[] b) {
         if (a.length != b.length) {
@@ -540,6 +542,63 @@ public class VectorOps {
             out[i] = StdIn.readDouble();
         }
         return out;
+    }
+    public static int mode(int []array){
+        HashMap<Integer,Integer> hm = new HashMap<Integer,Integer>();
+        int max  = 1;
+        int temp = array[0];
+        for(int i = 0; i < array.length; i++) {
+            if (hm.get(array[i]) != null) {
+                int count = hm.get(array[i]);
+                count++;
+                hm.put(array[i], count);
+                if(count > max) {
+                    max  = count;
+                    temp = array[i];
+                }
+            }
+            else
+                hm.put(array[i],1);
+        }
+        return temp;
+    }
+    public static float mode(float []array){
+        HashMap<Float,Integer> hm = new HashMap<Float,Integer>();
+        int max  = 1;
+        float temp = array[0];
+        for(int i = 0; i < array.length; i++) {
+            if (hm.get(array[i]) != null) {
+                int count = hm.get(array[i]);
+                count++;
+                hm.put(array[i], count);
+                if(count > max) {
+                    max  = count;
+                    temp = array[i];
+                }
+            }
+            else
+                hm.put(array[i],1);
+        }
+        return temp;
+    }
+    public static double mode(double[]array){
+        HashMap<Double,Integer> hm = new HashMap<Double,Integer>();
+        int max  = 1;
+        double temp = array[0];
+        for(int i = 0; i < array.length; i++) {
+            if (hm.get(array[i]) != null) {
+                int count = hm.get(array[i]);
+                count++;
+                hm.put(array[i], count);
+                if(count > max) {
+                    max  = count;
+                    temp = array[i];
+                }
+            }
+            else
+                hm.put(array[i],1);
+        }
+        return temp;
     }
 
 }

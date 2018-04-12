@@ -1,4 +1,4 @@
-public class toBase {
+public class ConverttoBase {
     public static void main(String[] args){
         int num = Integer.parseInt(args[0]);
         int base = Integer.parseInt(args[1]);

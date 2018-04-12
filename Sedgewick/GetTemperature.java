@@ -1,4 +1,7 @@
-public class GetTemperature {
+//Google doesn't allow. Says forbidden 403 htm.
+
+@Deprecated
+class GetTemperature_Google {
     public static void main(String[] args){
         StdOut.println(get_temperature("koramangala"));
     }

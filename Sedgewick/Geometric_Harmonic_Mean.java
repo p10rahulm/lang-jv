@@ -8,7 +8,7 @@ public class Geometric_Harmonic_Mean {
             sum_harmonics+=1/a;
             n+=1;
         }
-        double Geometric_Mean = epowerx.epowerx(sum_logs/n);
+        double Geometric_Mean = MMath.epowerx(sum_logs/n);
         double Harmonic_Mean = n/sum_harmonics;
         StdOut.printf("The geometric mean is %7.4f and the harmonic mean is %7.4f.\n",Geometric_Mean,Harmonic_Mean);
     }

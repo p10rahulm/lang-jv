@@ -1,4 +1,4 @@
-public class threed_SelfAvoidingWalk {
+public class SelfAvoidingWalk_3D {
     // I'm getting that the below random walk has dead end probability but sedgewick says it doesn't?!
     public static void main(String[] args){
         //We assume it's a square of odd integer side-length (2*distancetoside+1)

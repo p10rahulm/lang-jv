@@ -1,4 +1,4 @@
-public class toBinary {
+public class ConverttoBinary {
     public static void main(String[] args){
         int num = Integer.parseInt(args[0]);
         int base = 2; //Integer.parseInt(args[1]);

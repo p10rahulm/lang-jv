@@ -1,4 +1,4 @@
-public class closest_point_from_inputs {
+public class ClosestPointfromInputs {
     public static void main(String[] args){
         double x = Double.parseDouble(args[0]);
         double y = Double.parseDouble(args[1]);

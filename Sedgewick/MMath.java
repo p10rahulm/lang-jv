@@ -116,6 +116,15 @@ public class MMath {
         }
         return bits;
     }
+    public static double epowerx(double x){
+        double sum=1,currentsum=x;
+
+        for(int i = 2;sum!=sum+currentsum;i++){
+            sum +=currentsum;
+            currentsum*=x/i;
+        }
+        return(sum);
+    }
     public static boolean nth_bit_is_1(int number,int n){
         return ((number>>>n&1)==1);
     }

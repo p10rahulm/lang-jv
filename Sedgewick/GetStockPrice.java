@@ -1,4 +1,4 @@
-public class Get_StockPrice {
+public class GetStockPrice {
     public static void main(String[] args){
         System.out.println(get_price(args[0]));
     }
