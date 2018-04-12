@@ -63,6 +63,14 @@ public class VectorOps {
         }
         System.out.print("]\n");
     }
+    public static void printvector(float[] a) {
+        System.out.print("[");
+        for (int i = 0; i < a.length; i++) {
+            if (i != 0) System.out.print(", ");
+            System.out.print(a[i]);
+        }
+        System.out.print("]\n");
+    }
     public static void printvector(int[] a) {
         System.out.print("[");
         for (int i = 0; i < a.length; i++) {

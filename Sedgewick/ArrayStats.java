@@ -29,6 +29,12 @@ public class ArrayStats {
         avg/=a.length;
         return avg;
     }
+    public static float mean(float[] a){
+        float avg = 0;
+        for(int i =0;i<a.length;i++){avg+=a[i];}
+        avg/=a.length;
+        return avg;
+    }
     public static double mean(double[] a){
         double avg = 0;
         for(int i =0;i<a.length;i++){avg+=a[i];}
