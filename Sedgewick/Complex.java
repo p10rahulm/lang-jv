@@ -26,6 +26,10 @@ public class Complex {
     public Complex times(Complex a){
         return new Complex(real*a.real()-imag*a.imaginary(),real*a.imaginary()+imag*a.real());
     }
+    public Complex nth_root(int n){
+        //return new Complex(real*a.real()-imag*a.imaginary(),real*a.imaginary()+imag*a.real());
+        return new Complex(0,0);
+    }
     public static void main(String[] args){
         Complex z0 = new Complex(1,1);
         Complex z = z0;
