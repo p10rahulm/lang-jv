@@ -19,7 +19,7 @@ import java.awt.Color;
         }
         //VectorOps.printvector(histogram_x);
         //VectorOps.printvector(luminance_frequencies);
-        Histogrm.histogram_from_hist_array(luminance_frequencies,histogram_x,10, draw_mean, draw_variance);
+        Histogrm.histogram_from_hist_array(luminance_frequencies,histogram_x,10, true, false);
     }
 
 }

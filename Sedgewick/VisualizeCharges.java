@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class ElectricPotential_Visualization {
+public class VisualizeCharges {
 
     public static void main(String[] args){
         double[][] location_and_charges = MatrixOps.readDouble2D();
@@ -29,7 +29,7 @@ public class ElectricPotential_Visualization {
             }
         }
         pic.show();
-        StdOut.print("The grayscale visualization should appear on a different window");
+        //StdOut.print("The grayscale visualization should appear on a different window");
     }
     private static int[][] scaled_potential (double[][] potentials){
         int[][]scaled_potential = new int[potentials.length][potentials[0].length];

@@ -27,6 +27,15 @@ public class StockAccount {
         StockAccount acct = new StockAccount(name,cash,sharenames,shares);
         return acct;
     }
+    public void write(String filename){
+        Out sharefile = new Out(filename);
+        sharefile.println(name);
+        sharefile.println(cash);
+        sharefile.println(numshares);
+        for (int i = 0; i < numshares; i++) {
+            sharefile.print(shares[i]+" "+share_names[i]+"\n");
+        }
+    }
     public static void main(String[] args){
         String share_filename = args[0];
         StockAccount acct = readintializerfile(share_filename);
