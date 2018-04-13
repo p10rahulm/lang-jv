@@ -26,7 +26,7 @@ public class Histogram {
     }
     public void draw(){
         VectorOps.printvector(buckets);
-        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets);
+        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets, true, true);
     }
     public static void main(String[] args){
         int num_buckets = 10;
