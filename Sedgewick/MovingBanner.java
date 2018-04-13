@@ -26,7 +26,7 @@ public class MovingBanner {
         for(int i = 0;i<1000;i++) {
             StdDraw.clear();
             StdDraw.text(-0.15+(double)(i%115)/100, 0.5, banned);
-            StdDraw.show(dt);
+            StdDraw.pause(dt);
         }
     }
 }

@@ -22,7 +22,7 @@ public class BouncingBallWGravityElasticity {
             point_y+=v_y;
             StdDraw.clear();
             StdDraw.filledCircle(point_x,point_y,radius);
-            StdDraw.show(stop_time);
+            StdDraw.pause(stop_time);
         }
 
     }

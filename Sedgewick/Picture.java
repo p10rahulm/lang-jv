@@ -18,11 +18,13 @@
  *
  ******************************************************************************/
 
+import org.w3c.dom.events.Event;
+
 import java.awt.Color;
 import java.awt.FileDialog;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -222,6 +224,18 @@ public final class Picture implements ActionListener {
     public void show() {
 
         // create the GUI for viewing the image if needed
+        /*
+        From the docs
+        https://docs.oracle.com/javase/10/docs/api/java/awt/Toolkit.html#getMenuShortcutKeyMask()
+        Deprecated. It is recommended that extended modifier keys and getMenuShortcutKeyMaskEx() be used instead
+        @Deprecated(since="10")
+        public int getMenuShortcutKeyMask()
+                           throws HeadlessException
+        replaced by
+        public int getMenuShortcutKeyMaskEx()
+                             throws HeadlessException
+         */
+
         if (frame == null) {
             frame = new JFrame();
 
@@ -230,8 +244,8 @@ public final class Picture implements ActionListener {
             menuBar.add(menu);
             JMenuItem menuItem1 = new JMenuItem(" Save...   ");
             menuItem1.addActionListener(this);
-            menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
-                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+            //menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+            menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,InputEvent.CTRL_DOWN_MASK));
             menu.add(menuItem1);
             frame.setJMenuBar(menuBar);
 

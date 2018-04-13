@@ -36,7 +36,7 @@ public class PermutationsCombinations2 {
 
     }
 
-    public static ArrayList permute_array(int[] arr){
+    public static ArrayList<String> permute_array(int[] arr){
         // permute all the numbers till n,
         // ie if we have n = 3, output should be [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
         // or correspondingly with 0 1 2
@@ -44,25 +44,25 @@ public class PermutationsCombinations2 {
         // Hmm this looks like a decently hard problem.
         Set<Integer> currentnums = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {currentnums.add(arr[i]);}
-        ArrayList permutations = new ArrayList();
+        ArrayList<String> permutations = new ArrayList<String>();
         recurse_nums(currentnums,"",permutations);
         return permutations;
     }
-    public static ArrayList permute_array(String[] arr){
+    public static ArrayList<String> permute_array(String[] arr){
         HashSet<String> currentnums = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {currentnums.add(arr[i]);}
-        ArrayList permutations = new ArrayList();
+        ArrayList<String> permutations = new ArrayList<String>();
         recurse_nums(currentnums,"",permutations);
         return permutations;
     }
-    public static ArrayList permute_till_n(int n){
+    public static ArrayList<String> permute_till_n(int n){
         Set<Integer> currentnums = new HashSet<>();
         for (int i = 0; i < n; i++) {currentnums.add(i+1);}
-        ArrayList permutations = new ArrayList();
+        ArrayList<String> permutations = new ArrayList<String>();
         recurse_nums(currentnums,"",permutations);
         return permutations;
     }
-    public static ArrayList recurse_nums(Set<Integer> currentnums, String currentstring, ArrayList list_of_permutes){
+    public static ArrayList<String> recurse_nums(Set<Integer> currentnums, String currentstring, ArrayList<String> list_of_permutes){
         if(currentnums.size()==1){
             int elem = currentnums.iterator().next();
             list_of_permutes.add(currentstring + Integer.toString(elem));
@@ -77,7 +77,7 @@ public class PermutationsCombinations2 {
         }
         return list_of_permutes;
     }
-    public static ArrayList recurse_nums(HashSet<String> currentnums, String currentstring, ArrayList list_of_permutes){
+    public static ArrayList<String> recurse_nums(HashSet<String> currentnums, String currentstring, ArrayList<String> list_of_permutes){
         if(currentnums.size()==1){
             //StdOut.println("in1");
             String elem = currentnums.iterator().next();

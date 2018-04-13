@@ -18,7 +18,7 @@ public class IntegerLocal {
         return RelativelyPrime.relatively_prime(a,b);
     }
     public static int[] factors(int n){
-        List<Integer> a = new ArrayList();
+        List<Integer> a = new ArrayList<Integer>();
         int i = 2;boolean has_factors = false;
         while(i<=Math.sqrt(n)){
             if(n%i==0) {
@@ -36,7 +36,7 @@ public class IntegerLocal {
     }
 
     public static List<Integer> factor_list(int n){
-        List<Integer> a = new ArrayList();
+        List<Integer> a = new ArrayList<Integer>();
         int i = 2;
         boolean has_factors = false;
         while(i<=Math.sqrt(n)){

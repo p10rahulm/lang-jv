@@ -10,7 +10,7 @@ public class TowersofHanoi {
         // Each position can take values 0, 1 or 2
         for (int i = 1; i < n+1; i++) {move_positions[i]=0;}
         boolean animate = true;
-        if(animate) {
+        {
             StdDraw.setXscale(-0.1, 1.1);
             StdDraw.setXscale(-0.5, 3.5); // three towers
             StdDraw.setYscale(-0.5, move_positions.length - 0.5); // movepositions is 1 over size required as it's first element is the moves so far, so we subtract 0.5
@@ -22,7 +22,7 @@ public class TowersofHanoi {
         if(animate){
             StdDraw.clear();
             draw_current_pos(move_positions);
-            StdDraw.show(250);
+            StdDraw.pause(250);
         }
         if(disc_number==0){return move_positions;}
         move_positions = move(disc_number-1,!direction_right,move_positions,true);
