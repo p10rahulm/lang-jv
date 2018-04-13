@@ -14,7 +14,7 @@ public class BouncingBallWTracks {
             point_x+=v_x;
             point_y+=v_y;
             StdDraw.filledCircle(point_x,point_y,radius);
-            StdDraw.show(stop_time);
+            StdDraw.pause(stop_time);
         }
 
     }

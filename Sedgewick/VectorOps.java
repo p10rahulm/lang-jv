@@ -12,7 +12,6 @@ public class VectorOps {
         }
         sum = Math.sqrt(sum);
         return (sum);
-
     }
     public static String[] reverse_new(String[] a) {
         String[] b = new String[a.length];

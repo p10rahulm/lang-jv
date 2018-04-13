@@ -11,52 +11,20 @@
  *
  ******************************************************************************/
 
-/**
- *  The {@code Stopwatch} data type is for measuring
- *  the time that elapses between the start and end of a
- *  programming task (wall-clock time).
- *
- *  See {@link StopwatchCPU} for a version that measures CPU time.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- */
-
 
 public class Stopwatch {
 
     private final long start;
 
-    /**
-     * Initializes a new stopwatch.
-     */
     public Stopwatch() {
         start = System.currentTimeMillis();
     }
 
-
-    /**
-     * Returns the elapsed CPU time (in seconds) since the stopwatch was created.
-     *
-     * @return elapsed CPU time (in seconds) since the stopwatch was created
-     */
     public double elapsedTime() {
         long now = System.currentTimeMillis();
         return (now - start) / 1000.0;
     }
 
-
-    /**
-     * Unit tests the {@code Stopwatch} data type.
-     * Takes a command-line argument {@code n} and computes the 
-     * sum of the square roots of the first {@code n} positive integers,
-     * first using {@code Math.sqrt()}, then using {@code Math.pow()}.
-     * It prints to standard output the sum and the amount of time to
-     * compute the sum. Note that the discrete sum can be approximated by
-     * an integral - the sum should be approximately 2/3 * (n^(3/2) - 1).
-     *
-     * @param args the command-line arguments
-     */
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
 
@@ -77,5 +45,14 @@ public class Stopwatch {
         }
         double time2 = timer2.elapsedTime();
         StdOut.printf("%e (%.2f seconds)\n", sum2, time2);
+
+        // sum of square roots of integers from 1 to n using newton method :/.
+        Stopwatch timer3 = new Stopwatch();
+        double sum3 = 0.0;
+        for (int i = 1; i <= n; i++) {
+            sum3 += Sqrt.sqrt(i);
+        }
+        double time3 = timer3.elapsedTime();
+        StdOut.printf("%e (%.2f seconds)\n", sum3, time3);
     }
 } 

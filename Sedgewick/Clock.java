@@ -12,7 +12,7 @@ public class Clock {
         for(int i =0;i<1000;i++) {
             StdDraw.clear();
             draw_clock_ends(hour,minute,second);
-            StdDraw.show(1000);
+            StdDraw.pause(1000);
             {
                 second+=1;
                 if(second==60){minute+=1;}
