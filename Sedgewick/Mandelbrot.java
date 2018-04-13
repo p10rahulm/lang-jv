@@ -1,3 +1,30 @@
+/*
+The mandelbrot is one large interesting set of points. We are sampling it based on a center_x, center_y and a particular zoom level. This generates images as per below
+Run it at the following points for some interesting graphs
+java Mandelbrot -1.4745 -0 0.0000001
+java Mandelbrot -0.5 0 2
+java Mandelbrot -0.1015 -0.633 0.01
+java Mandelbrot 0.1015 -0.633 0.01
+java Mandelbrot 0.1015 -0.633 1
+java Mandelbrot 0.1015 -0.633 0.001
+java Mandelbrot -0.5 -0.2 0.01
+java Mandelbrot -0.5 -0.2 3
+java Mandelbrot -1 -0 3
+java Mandelbrot -1 -0 1
+java Mandelbrot -1.5 -0 0.1
+java Mandelbrot -1.5 -0 0.01
+java Mandelbrot -1.5 -0 0.001
+java Mandelbrot -1.47 -0 0.1
+java Mandelbrot -1.475 -0 0.011
+java Mandelbrot -1.475 -0 0.001
+java Mandelbrot -1.474 -0 0.001
+java Mandelbrot -1.4745 -0 0.001
+java Mandelbrot -1.4745 -0 0.0001
+java Mandelbrot -1.4745 -0 0.00001
+java Mandelbrot -1.4745 -0 0.000001
+java Mandelbrot -1.4745 -0 0.0000001
+ */
+
 import java.awt.Color;
 
 public class Mandelbrot {
