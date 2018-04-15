@@ -6,9 +6,9 @@
 */
 
 /*
-The structure looks as follows: (converting images to text for easy use)
 1.
 FRFRF - this is basic structure
+
 2.
 FLFLF - this is reverse structure
 RF
@@ -18,7 +18,25 @@ FRFRF
 FR
 FLFLF
 
+3.
+FRFRF
+LF
+FLFLF
+RFR
+FLFLF
+FL
+FRFRF
 
+FR
+
+FLFLF
+RF
+FRFRF
+LFL
+FRFRF
+FR
+FLFLF
+...
  */
 
 public class HilbertCurves {

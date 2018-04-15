@@ -102,7 +102,7 @@ public class Histogrm {
     private static void draw_histogram(double l,double r,int hist_max,double[] bucket_upperbounds,int[] buckets,int number_of_buckets, boolean draw_mean, boolean draw_variance){
         StdDraw.setXscale(l-r/20,r);
         StdDraw.setYscale(-(double) hist_max/20,hist_max);
-        StdDraw.line(l-0.5,0,r,0);
+        StdDraw.line(l-r/20,0,r,0);
         StdDraw.line(l,-0.5,l,hist_max);
         // Draw the first rectangle
         StdDraw.filledRectangle((bucket_upperbounds[0]+l)/2,(double) buckets[0]/2,(bucket_upperbounds[0]-l)/2,(double)buckets[0]/2);
@@ -133,11 +133,11 @@ public class Histogrm {
         DecimalFormat df = new DecimalFormat(".#");
         {
             double last = 0.0;
-            StdDraw.text(l+0.125,-(double) hist_max/40,Double.toString(l));
+            StdDraw.text(l+r/40,-(double) hist_max/40,df.format(l));
             for(int i =0;i<number_of_buckets;i++) {
-                StdOut.println((double)i/number_of_buckets);
+                //StdOut.println((double)i/number_of_buckets);
                 if((double)(i+1)/number_of_buckets>=last+0.1){
-                    StdDraw.text(bucket_upperbounds[i]-0.25,-(double) hist_max/40,df.format(bucket_upperbounds[i]));
+                    StdDraw.text(bucket_upperbounds[i]-r/40,-(double) hist_max/40,df.format(bucket_upperbounds[i]));
                     last = (double)i/number_of_buckets;
                 }
             }
@@ -175,7 +175,13 @@ public class Histogrm {
         double l = x_lowerbounds[0];
         double r = x_upperbounds[x_upperbounds.length-1];
         int n = num_histogram_buckets;
-
+        StdOut.println("buckets");
+        VectorOps.printvector(buckets);
+        StdOut.println("x_lowerbounds");
+        VectorOps.printvector(x_lowerbounds);
+        StdOut.println("x_upperbounds");
+        VectorOps.printvector(x_upperbounds);
+        StdOut.println("l = "+l+", r="+r);
         int hist_max = VectorOps.array_max(buckets); // ditch hist_min as it's not sure that we want axis moved ,hist_min=buckets[0];
         draw_histogram(l,r,hist_max,x_upperbounds,buckets,n, draw_mean, draw_variance);
     }

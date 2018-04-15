@@ -42,6 +42,9 @@ public class Mandelbrot {
         return max_iterations;
     }
     public static Picture draw_mandelbrot(double center_x,double center_y, double size){
+        int ITERS  = 255;
+        // read in color map
+        Color[] colors = ColorFunctions.get_good_colors(ITERS);
         int pixels  = 512;
         Picture pic = new Picture(pixels,pixels);
         for (int i = 0; i < pixels; i++) {
@@ -50,8 +53,9 @@ public class Mandelbrot {
                 double y0 = center_y - size/2 +size*j/pixels;
                 Complex z0 = new Complex(x0,y0);
                 //StdOut.println(z0);
-                int mconst = 255 - mand(z0,255);
+                int mconst = ITERS - mand(z0,ITERS);
                 Color col = new Color(mconst,mconst,mconst);
+                //Color col = colors[mconst];
                 pic.set(i,pixels-1-j,col);
             }
         }

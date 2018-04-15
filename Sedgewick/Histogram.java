@@ -24,9 +24,17 @@ public class Histogram {
         }
         buckets[i]++;
     }
+    public void draw(boolean draw_mean,boolean draw_variance){
+        VectorOps.printvector(buckets);
+        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets, draw_mean, draw_variance);
+    }
+    public void draw(boolean draw_mean){
+        VectorOps.printvector(buckets);
+        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets, draw_mean, false);
+    }
     public void draw(){
         VectorOps.printvector(buckets);
-        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets, true, true);
+        Histogrm.histogrammer(buckets,lower_bounds,upper_bounds,num_buckets, false, false);
     }
     public static void main(String[] args){
         int num_buckets = 10;
