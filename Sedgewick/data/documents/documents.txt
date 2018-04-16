@@ -1,0 +1,5 @@
+data/documents/Constitution.txt
+data/documents/Prejudice.txt
+data/documents/somegene.txt
+data/documents/TomSawyer.txt
+data/stocks/djia.csv

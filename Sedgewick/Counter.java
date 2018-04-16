@@ -1,4 +1,4 @@
-public class Counter {
+public class Counter implements Comparable<Counter>{
     private final String name;
     private final int max;
     private int count;
@@ -7,6 +7,11 @@ public class Counter {
         this.name = name;
         this.max = max;
         this.count =0;
+    }
+    public int compareTo(Counter b){
+        if(count<b.count)return -1;
+        if(count>b.count)return 1;
+        return 0;
     }
     public void increment(){
         if(count<max){count+=1;}

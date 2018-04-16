@@ -1,7 +1,6 @@
-here
-here
-here
-here
-here
-here
-done
+        data    data    data    data    data
+data    1.00    0.64    0.11    0.66    0.18
+data    0.64    1.00    0.15    0.88    0.25
+data    0.11    0.15    1.00    0.14    0.11
+data    0.66    0.88    0.14    1.00    0.24
+data    0.18    0.25    0.11    0.24    1.00
