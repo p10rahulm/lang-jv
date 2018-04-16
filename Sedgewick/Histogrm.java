@@ -77,84 +77,8 @@ public class Histogrm {
         }
         return;
     }
-    private static double get_hist_mean(double l, double[] upperbounds,int[] buckets){
-        double sum =0,sumbuckets=0;
-        sum += ((l+upperbounds[0])/2)*buckets[0];
-        for (int i = 1; i < upperbounds.length; i++) {
-            sum += ((upperbounds[i-1]+upperbounds[i])/2)*buckets[i];
-        }
-        for (int i = 0; i < buckets.length; i++) {
-            sumbuckets+=buckets[i];
-        }
-        return sum/sumbuckets;
-    }
-    private static double get_hist_variance(double l, double[] upperbounds,int[] buckets,double mean){
-        double sum =0,sumbuckets=0;
-        sum += (((l+upperbounds[0])/2)-mean)*(((l+upperbounds[0])/2)-mean)*buckets[0];
-        for (int i = 1; i < upperbounds.length; i++) {
-            sum += (((upperbounds[i-1]+upperbounds[i])/2)-mean)*(((upperbounds[i-1]+upperbounds[i])/2)-mean)*buckets[i];
-        }
-        for (int i = 0; i < buckets.length; i++) {
-            sumbuckets+=buckets[i];
-        }
-        return Math.sqrt(sum/sumbuckets);
-    }
-    private static void draw_histogram(double l,double r,int hist_max,double[] bucket_upperbounds,int[] buckets,int number_of_buckets, boolean draw_mean, boolean draw_variance){
-        StdDraw.setXscale(l-r/20,r);
-        StdDraw.setYscale(-(double) hist_max/20,hist_max);
-        StdDraw.line(l-r/20,0,r,0);
-        StdDraw.line(l,-0.5,l,hist_max);
-        // Draw the first rectangle
-        StdDraw.filledRectangle((bucket_upperbounds[0]+l)/2,(double) buckets[0]/2,(bucket_upperbounds[0]-l)/2,(double)buckets[0]/2);
-        for(int i =1;i<number_of_buckets;i++){
-            StdDraw.filledRectangle((bucket_upperbounds[i]+bucket_upperbounds[i-1])/2,(double) buckets[i]/2,(bucket_upperbounds[i]-bucket_upperbounds[i-1])/2,(double)buckets[i]/2);
-        }
 
-        if(draw_mean||draw_variance){
-            double mean = get_hist_mean(l, bucket_upperbounds,buckets);
-            if(draw_mean){
-                StdDraw.setPenColor(Color.BLUE);
-                StdDraw.setPenRadius(0.02);
-                StdDraw.line(mean,0,mean,hist_max);
-                StdDraw.setPenColor();
-                StdDraw.setPenRadius();
-            }
-            if(draw_variance){
-                double variance = get_hist_variance(l, bucket_upperbounds,buckets,mean);
-                StdDraw.setPenColor(Color.RED);
-                StdDraw.setPenRadius(0.005);
-                StdDraw.line(mean-variance,0,mean-variance,hist_max);
-                StdDraw.line(mean+variance,0,mean+variance,hist_max);
-                StdDraw.setPenColor();
-                StdDraw.setPenRadius();
-            }
-        }
 
-        DecimalFormat df = new DecimalFormat(".#");
-        {
-            double last = 0.0;
-            StdDraw.text(l+r/40,-(double) hist_max/40,df.format(l));
-            for(int i =0;i<number_of_buckets;i++) {
-                //StdOut.println((double)i/number_of_buckets);
-                if((double)(i+1)/number_of_buckets>=last+0.1){
-                    StdDraw.text(bucket_upperbounds[i]-r/40,-(double) hist_max/40,df.format(bucket_upperbounds[i]));
-                    last = (double)i/number_of_buckets;
-                }
-            }
-        }
-        {
-            double last = 0.0;
-            StdDraw.text(l-r/40,0.125, Integer.toString(0));
-            for(int i =1;i<=hist_max;i++) {
-                if((double)i/hist_max>=last+0.1){
-                    StdDraw.text(l-r/40,i-0.125, Integer.toString(i));
-                    last = (double)i/hist_max;
-                }
-
-            }
-        }
-
-    }
     public static void histogram_from_hist_array(int[] histogram_y, double[] histogram_x, int num_histogram_buckets, boolean draw_mean, boolean draw_variance) {
         //histogram-ys indicate the number of occurances in the histogram x_s, so it is an int array
         double l = VectorOps.array_min(histogram_x);
@@ -168,7 +92,7 @@ public class Histogrm {
         fillbuckets(buckets, bucket_lowerbounds, bucket_upperbounds, histogram_x, histogram_y);
 
         int hist_max = VectorOps.array_max(buckets); // ditch hist_min as it's not sure that we want axis moved ,hist_min=buckets[0];
-        draw_histogram(l,r,hist_max,bucket_upperbounds,buckets,n, draw_mean, draw_variance);
+        Histogram.draw_histogram(l,r,hist_max,bucket_upperbounds,buckets,n, draw_mean, draw_variance);
     }
     public static void histogrammer(int[] buckets, double[] x_lowerbounds, double[] x_upperbounds, int num_histogram_buckets, boolean draw_mean, boolean draw_variance) {
         //histogram-ys indicate the number of occurances in the histogram x_s, so it is an int array
@@ -183,7 +107,7 @@ public class Histogrm {
         VectorOps.printvector(x_upperbounds);
         StdOut.println("l = "+l+", r="+r);
         int hist_max = VectorOps.array_max(buckets); // ditch hist_min as it's not sure that we want axis moved ,hist_min=buckets[0];
-        draw_histogram(l,r,hist_max,x_upperbounds,buckets,n, draw_mean, draw_variance);
+        Histogram.draw_histogram(l,r,hist_max,x_upperbounds,buckets,n, draw_mean, draw_variance);
     }
 }
 
