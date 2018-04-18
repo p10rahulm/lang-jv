@@ -54,6 +54,7 @@ public class Random {
         double randn = Phi_inverse(rand, mean, sigma);
         return randn;
     }
+
     public static double gaussian(double mean, double sigma){
         return(mean+sigma*std_gaussian());
     }
@@ -109,7 +110,70 @@ public class Random {
     public static double maxwellBoltzmann(double sigma){
         return(Math.sqrt(Math.pow(gaussian(0,sigma),2)+Math.pow(gaussian(0,sigma),2)+Math.pow(gaussian(0,sigma),2)));
     }
-
+    public static double[] sample(double[] array, int num_to_sample){
+        if(num_to_sample>array.length)throw new RuntimeException("Number to sample is greater than array length");
+        int[] temp = new int[array.length];
+        for(int i =0;i<temp.length;i++){
+            temp[i]=i;
+        }
+        double[] out = new double[num_to_sample];
+        for (int i = 0; i < num_to_sample; i++) {
+            int pick_random = (int)(Math.random()*(array.length-i));
+            int tempint = temp[i];
+            temp[i] = temp[i+pick_random];
+            temp[i+pick_random] = tempint;
+            out[i] = array[temp[i]];
+        }
+        return out;
+    }
+    public static int[] sample(int[] array, int num_to_sample){
+        if(num_to_sample>array.length)throw new RuntimeException("Number to sample is greater than array length");
+        int[] temp = new int[array.length];
+        for(int i =0;i<temp.length;i++){
+            temp[i]=i;
+        }
+        int[] out = new int[num_to_sample];
+        for (int i = 0; i < num_to_sample; i++) {
+            int pick_random = (int)(Math.random()*(array.length-i));
+            int tempint = temp[i];
+            temp[i] = temp[i+pick_random];
+            temp[i+pick_random] = tempint;
+            out[i] = array[temp[i]];
+        }
+        return out;
+    }
+    public static boolean[] sample(boolean[] array, int num_to_sample){
+        if(num_to_sample>array.length)throw new RuntimeException("Number to sample is greater than array length");
+        int[] temp = new int[array.length];
+        for(int i =0;i<temp.length;i++){
+            temp[i]=i;
+        }
+        boolean[] out = new boolean[num_to_sample];
+        for (int i = 0; i < num_to_sample; i++) {
+            int pick_random = (int)(Math.random()*(array.length-i));
+            int tempint = temp[i];
+            temp[i] = temp[i+pick_random];
+            temp[i+pick_random] = tempint;
+            out[i] = array[temp[i]];
+        }
+        return out;
+    }
+    public static String[] sample(String[] array, int num_to_sample){
+        if(num_to_sample>array.length)throw new RuntimeException("Number to sample is greater than array length");
+        int[] temp = new int[array.length];
+        for(int i =0;i<temp.length;i++){
+            temp[i]=i;
+        }
+        String[] out = new String[num_to_sample];
+        for (int i = 0; i < num_to_sample; i++) {
+            int pick_random = (int)(Math.random()*(array.length-i));
+            int tempint = temp[i];
+            temp[i] = temp[i+pick_random];
+            temp[i+pick_random] = tempint;
+            out[i] = array[temp[i]];
+        }
+        return out;
+    }
 
 
 }
