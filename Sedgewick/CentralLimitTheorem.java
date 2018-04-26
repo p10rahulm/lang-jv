@@ -6,12 +6,13 @@ public class CentralLimitTheorem {
         String filename = args[0];
         int number_to_sample = Integer.parseInt(args[1]);
         int trials = Integer.parseInt(args[2]);
-        check_central_limit_theorem(filename,number_to_sample,trials);
+
+        check_central_limit_theorem(filename,number_to_sample,trials,10);
     }
-    public static void check_central_limit_theorem(String filename, int sample_size, int trials){
+    public static void check_central_limit_theorem(String filename, int sample_size, int trials,int numbuckets_for_histogram){
         double[] numbers = read_file_to_numlist(filename);
         double[] average = new double[trials];
-        Histogram averages = new Histogram(VectorOps.array_min(numbers),VectorOps.array_max(numbers),10);
+        Histogram averages = new Histogram(VectorOps.array_min(numbers),VectorOps.array_max(numbers),numbuckets_for_histogram);
         for (int i = 0; i < trials; i++) {
             double[] sample = Random.sample(numbers,sample_size);
             for (int j = 0; j < sample.length; j++) {
